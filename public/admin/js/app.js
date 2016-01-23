@@ -99,8 +99,8 @@ $(function() {
     // SERVICIO
     var counter_service = 2;
     //agregamos el un IMPUT  para contparasar a java
-    $('#service_tools-h').append('<input type="text"  name="num-services" id="num-services-h" value="' + (counter_service - 1) + '"  style="width: 0px; height: 0px; padding:0;" />')
-    $('#del_service-h').hide();
+    // $('#service_tools-h').append('<input type="text"  name="num-services" id="num-services-h" value="' + (counter_service - 1) + '"  style="width: 0px; height: 0px; padding:0;" />')
+    // $('#del_service-h').hide();
 
     $('#add_service-h').click(function() {
         $('#service_tools-h').before('\
@@ -108,7 +108,7 @@ $(function() {
             '<div class="row-fluid ">' +
             '<div class="span4">Tipo de Servicio ' + counter_service + '</div>' +
             '<div class="span4">' +
-            '<input type="text"  name="type-service' + counter_service + '" value=""  align="left" id="type-service' + counter_service + '-h"  placeholder="Nombre del servicios " required/>' +
+            '<input  class= "servicios" type="text"  name="type-service' + counter_service + '" value=""  align="left" id="type-service' + counter_service + '-h"  placeholder="Nombre del servicios " required/>' +
             '</div>' +
             '</div>' +
             '</div>' +
