@@ -10,20 +10,10 @@ var HotelSchema = new Schema({
   correo_elec: String,
   tipo_precio_hab: String,
   formas_pago: String,
-  geometry: {
-    type: String,
-    coordinates: [Number],
-    latitud: Number,
-    longitud: Number,
-    idproducto: String
-  },
-  bServiciosAdicional: [{
-    tipo: String,
-    idproducto: String
-  }],
+  latitud: Number,
+  longitud: Number,
   imagenes: [{
-    url: String,
-    idproducto: String
+    url: String
   }],
   idproducto: String,
   nombre: String,
