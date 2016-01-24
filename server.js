@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var controllerHotel = require('./app/controllers/hotel');
+var controllerRestaurant = require('./app/controllers/restaurant');
+
 var path = require('path');
 var multer = require('multer');
 
@@ -29,7 +31,6 @@ var upload = multer({
   storage: storage
 }).any();
 
-
 var router = express.Router();
 router.use(function(req, res, next) {
   console.log('logging');
@@ -42,6 +43,7 @@ router.get('/', function(req, res) {
   });
 });
 
+//hotel
 router.route('/hoteles')
   .post(function(req, res) {
     controllerHotel.save(req, res, upload);
@@ -49,6 +51,16 @@ router.route('/hoteles')
   .get(function(req, res) {
     controllerHotel.findAll(req, res);
   });
+
+//restaurant
+router.route('/restaurants')
+  .post(function(req, res) {
+    controllerRestaurant.save(req, res, upload);
+  })
+  .get(function(req, res) {
+    controllerRestaurant.findAll(req, res);
+  });
+
 
 app.use('/api', router);
 app.listen(port);
