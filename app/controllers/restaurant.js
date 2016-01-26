@@ -1,5 +1,4 @@
 var Restaurant = require('./../models/restaurant');
-
 module.exports = {
   save: function(req, res, upload) {
     upload(req, res, function(err) {

@@ -41,6 +41,7 @@ module.exports = {
     Hotel.find(function(err, hoteles) {
       if (err)
         res.send(err);
+      //console.log(hoteles);
       res.json(hoteles);
     });
   }

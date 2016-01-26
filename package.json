@@ -6,6 +6,7 @@
   "dependencies": {
     "body-parser": "~1.0.1",
     "connect-multiparty": "^2.0.0",
+    "cors": "^2.7.1",
     "express": "~4.0.0",
     "mongoose": "~3.6.13",
     "watchify": "^3.7.0",

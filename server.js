@@ -1,15 +1,18 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var controllerHotel = require('./app/controllers/hotel');
-var controllerRestaurant = require('./app/controllers/restaurant');
-
 var path = require('path');
 var multer = require('multer');
-
+var cors = require('cors');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/geotura');
+var controllerHotel = require('./app/controllers/hotel');
+var controllerRestaurant = require('./app/controllers/restaurant');
+var controllerTransporte = require('./app/controllers/transporte');
+var controllerRecurso = require('./app/controllers/recurso');
 
+
+mongoose.connect('mongodb://localhost/geoturb');
+app.use(cors());
 var port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({
   extended: true
@@ -20,7 +23,7 @@ app.use(bodyParser.json());
 //MULTER
 var storage = multer.diskStorage({
   destination: function(req, file, callback) {
-    callback(null, './uploads');
+    callback(null, './public/admin/imagenesDB');
   },
   filename: function(req, file, callback) {
     callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -60,6 +63,29 @@ router.route('/restaurants')
   .get(function(req, res) {
     controllerRestaurant.findAll(req, res);
   });
+
+//transporte
+router.route('/transportes')
+  .post(function(req, res) {
+    controllerTransporte.save(req, res, upload);
+  })
+  .get(function(req, res) {
+    controllerTransporte.findAll(req, res);
+  });
+
+//Recurso
+router.route('/recursos')
+  .post(function(req, res) {
+    controllerRecurso.save(req, res, upload);
+  })
+  .get(function(req, res) {
+    controllerRecurso.findAll(req, res);
+  });
+
+router.route('/recursos/:id')
+.delete(function(req, res) {
+  controllerRecurso.delete(req, res);
+});
 
 
 app.use('/api', router);
