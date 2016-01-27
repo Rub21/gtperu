@@ -100,8 +100,34 @@ function rm_transportes(id, nombre) {
   } else {}
 }
 
+//complementarios
+function load_list_complementarios() {
+  $('#complementarios').empty();
+  $.getJSON("/api/complementarios", function(data) {
+    var items = [];
+    $.each(data, function(key, val) {
+      items.push('<li  id="' + key + '">' + val.nombre + '-' + '<a  href="#"  onclick="rm_complementarios(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a></li>');
+    });
+    $("<ul/>", {
+      "class": "list",
+      html: items.join("")
+    }).appendTo("#complementarios");
+  });
+}
+
+function rm_complementarios(id, nombre) {
+  if (confirm('Deceas eliminar : ' + nombre)) {
+    $.ajax({
+      url: '/api/complementarios/' + id,
+      type: 'DELETE'
+    });
+    load_list_complementarios();
+  } else {}
+}
+
 
 load_list_recursos();
 load_list_hoteles();
 load_list_restaurants();
 load_list_transportes();
+load_list_complementarios();

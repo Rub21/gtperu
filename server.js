@@ -9,7 +9,7 @@ var controllerHotel = require('./app/controllers/hotel');
 var controllerRestaurant = require('./app/controllers/restaurant');
 var controllerTransporte = require('./app/controllers/transporte');
 var controllerRecurso = require('./app/controllers/recurso');
-
+var controllerComplementario = require('./app/controllers/complementario');
 
 mongoose.connect('mongodb://localhost/geoturb');
 app.use(cors());
@@ -81,6 +81,20 @@ router.route('/transportes')
 router.route('/transportes/:id')
   .delete(function(req, res) {
     controllerTransporte.delete(req, res);
+  });
+
+//Complementario
+router.route('/complementarios')
+  .post(function(req, res) {
+    controllerComplementario.save(req, res, upload);
+  })
+  .get(function(req, res) {
+    controllerComplementario.findAll(req, res);
+  });
+
+router.route('/complementarios/:id')
+  .delete(function(req, res) {
+    controllerComplementario.delete(req, res);
   });
 
 //Recurso
