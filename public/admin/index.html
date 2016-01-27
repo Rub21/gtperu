@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Registro</title>        
+        <title>Registro</title>
         <link rel='stylesheet' href='css/mapbox0.6.css'  />
         <link rel="stylesheet" href="css/bootstrap.css" >
         <link rel="stylesheet" href="css/style.css" />
@@ -13,16 +13,17 @@
     </head>
     <body>
         <div class="masthead">
-            <a href="/"> <h3 class="muted">  Registra Poducto Turístico</h3></a>
+            <a href="/"> <h3 class="muted">Registra Poducto Turístico</h3></a>
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="container">
                         <ul class="nav">
-                            <li><a href = "recurso.html">Recurso turística</a></li>                           
-                            <li><a href="#" onClick="location.href = 'hotel.html'">Hotel</a></li>
-                            <li><a href="#" onClick="location.href = 'restaurant.html'">Restaurante</a></li>
-                            <li><a href="#" onClick="location.href = 'transporte.html'">Medios de Transporte</a></li>
-                            <li><a href="#" onClick="location.href = 'complementario.html'">Servicios Conplementarios</a></li>
+                            <li><a href="/">Inicio</a></li>
+                            <li><a href="/recurso.html">Recurso turístico</a></li>
+                            <li><a href="/hotel.html">Hotel</a></li>
+                            <li><a href="/restaurant.html">Restaurante</a></li>
+                            <li><a href="/transporte.html">M. de Transporte</a></li>
+                            <li><a href="/complementario.html">Serv. Conplementarios</a></li>
                         </ul>
                     </div>
                 </div>
@@ -35,7 +36,21 @@
                 <a class="btn btn-large btn-success" href="../index.html">Visualizar Puntos Registrados</a>
             </div>
             <hr>
-
+            <h4>Recursos:</h4>
+            <div id="recursos"  class="container span12 well" >
+            </div>
+            <h4>Hoteles:</h4>
+            <div id="hoteles"  class="container span12 well" >
+            </div>
+            <h4>Restaurantes:</h4>
+            <div id="restaurants"  class="container span12 well" >
+            </div>
+            <h4>Medios de Transporte:</h4>
+            <div id="transportes"  class="container span12 well" >
+            </div>
+            <h4>Servicios complementarios:</h4>
+            <div id="complemtarios"  class="container span12 well" >
+            </div>
         </body>
         <!--Scripts-->
         <script src='js/mapbox0.6.js'></script>
@@ -50,4 +65,5 @@
         <script src='js/form_restaurant.js' ></script>
         <script src='js/form_transporte.js' ></script>
         <script src='js/form_validate.js' ></script>
-</html>
+        <script src='js/delete.js'></script>
+    </html>

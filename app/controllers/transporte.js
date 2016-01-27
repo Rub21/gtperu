@@ -32,9 +32,7 @@ module.exports = {
       transporte.save(function(err) {
         if (err)
           res.send(err);
-        res.json({
-          message: 'Transporte created!'
-        });
+        res.redirect('/confirm.html');
       });
     });
   },
@@ -43,6 +41,17 @@ module.exports = {
       if (err)
         res.send(err);
       res.json(transportes);
+    });
+  },
+  delete: function(req, res) {
+    Transporte.remove({
+      _id: req.params.id
+    }, function(err, bear) {
+      if (err)
+        res.send(err);
+      res.json({
+        message: 'Successfully deleted'
+      });
     });
   }
 };

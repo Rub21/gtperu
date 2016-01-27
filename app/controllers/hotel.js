@@ -12,7 +12,7 @@ module.exports = {
       hotel.clase = "Hotel";
       hotel.estado = true;
       hotel.categoria = data.categoria;
-      hotel.nombre=data.nombre;
+      hotel.nombre = data.nombre;
       hotel.descripcion = data.descripcion;
       hotel.direccion = data.direccion;
       hotel.telefono = data.telefono;
@@ -31,9 +31,7 @@ module.exports = {
       hotel.save(function(err) {
         if (err)
           res.send(err);
-        res.json({
-          message: 'Hotel created!'
-        });
+        res.redirect('/confirm.html');
       });
     });
   },
@@ -43,6 +41,18 @@ module.exports = {
         res.send(err);
       //console.log(hoteles);
       res.json(hoteles);
+    });
+  },
+  delete: function(req, res) {
+    console.log(req.params.id);
+    Hotel.remove({
+      _id: req.params.id
+    }, function(err, bear) {
+      if (err)
+        res.send(err);
+      res.json({
+        message: 'Successfully deleted'
+      });
     });
   }
 };

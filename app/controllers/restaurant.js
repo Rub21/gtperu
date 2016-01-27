@@ -36,9 +36,7 @@ module.exports = {
       restaurant.save(function(err) {
         if (err)
           res.send(err);
-        res.json({
-          message: 'Restaurant created!'
-        });
+        res.redirect('/confirm.html');
       });
     });
   },
@@ -47,6 +45,18 @@ module.exports = {
       if (err)
         res.send(err);
       res.json(restaurantes);
+    });
+  },
+  delete: function(req, res) {
+    console.log(req.params.id);
+    Restaurant.remove({
+      _id: req.params.id
+    }, function(err, bear) {
+      if (err)
+        res.send(err);
+      res.json({
+        message: 'Successfully deleted'
+      });
     });
   }
 };

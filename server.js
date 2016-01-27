@@ -54,7 +54,10 @@ router.route('/hoteles')
   .get(function(req, res) {
     controllerHotel.findAll(req, res);
   });
-
+router.route('/hoteles/:id')
+  .delete(function(req, res) {
+    controllerHotel.delete(req, res);
+  });
 //restaurant
 router.route('/restaurants')
   .post(function(req, res) {
@@ -63,7 +66,10 @@ router.route('/restaurants')
   .get(function(req, res) {
     controllerRestaurant.findAll(req, res);
   });
-
+router.route('/restaurants/:id')
+  .delete(function(req, res) {
+    controllerRestaurant.delete(req, res);
+  });
 //transporte
 router.route('/transportes')
   .post(function(req, res) {
@@ -71,6 +77,10 @@ router.route('/transportes')
   })
   .get(function(req, res) {
     controllerTransporte.findAll(req, res);
+  });
+router.route('/transportes/:id')
+  .delete(function(req, res) {
+    controllerTransporte.delete(req, res);
   });
 
 //Recurso
@@ -83,10 +93,9 @@ router.route('/recursos')
   });
 
 router.route('/recursos/:id')
-.delete(function(req, res) {
-  controllerRecurso.delete(req, res);
-});
-
+  .delete(function(req, res) {
+    controllerRecurso.delete(req, res);
+  });
 
 app.use('/api', router);
 app.listen(port);

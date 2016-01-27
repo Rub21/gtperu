@@ -41,9 +41,10 @@ module.exports = {
       recurso.save(function(err) {
         if (err)
           res.send(err);
-        res.json({
-          message: 'Recurso created!'
-        });
+        // res.json({
+        //   message: 'Recurso created!'
+        // });
+        res.redirect('/confirm.html');
       });
     });
   },
