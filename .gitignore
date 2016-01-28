@@ -13,5 +13,7 @@
 node_modules/
 uploads/
 .DS_Store
-imagenesDB/
+*.png
+*.jpge
+*.jpg
 *.*~

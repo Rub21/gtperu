@@ -17,7 +17,7 @@
     "browserify": "^13.0.0"
   },
   "scripts": {
-    "start": "watchify -d index.js -o ./public/admin/js/bundle.js & node server.js"
+    "start": "node server.js"
   },
   "author": "Ruben Lopez M (http://rub21.github.io/)",
   "license": "ISC"
