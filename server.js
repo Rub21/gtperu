@@ -26,7 +26,7 @@ var storage = multer.diskStorage({
     callback(null, './public/admin/imagenesDB');
   },
   filename: function(req, file, callback) {
-    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    callback(null, file.originalname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
 
