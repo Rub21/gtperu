@@ -27,7 +27,7 @@ module.exports = function(app, passport, upload) {
   //profile
   app.get('/profile', isLoggedIn, function(req, res) {
     res.render('pages/profile.ejs', {
-      user: req.user // get the user out of session and pass to template
+      user: req.user
     });
   });
 
@@ -65,7 +65,11 @@ module.exports = function(app, passport, upload) {
     });
   });
   app.post('/api/hoteles', isLoggedIn, function(req, res) {
-    controllerHotel.save(req, res, upload);
+    controllerHotel.save(req, res, upload, function(status) {
+      if (status) {
+        res.render('pages/confirm.ejs');
+      }
+    });
   });
   app.get('/api/hoteles', function(req, res) {
     controllerHotel.findAll(req, res);
@@ -73,6 +77,27 @@ module.exports = function(app, passport, upload) {
   app.delete('/api/hoteles/:id', isLoggedIn, function(req, res) {
     controllerHotel.delete(req, res);
   });
+
+  //=============================================RESTAURANTS
+  app.get('/restaurants', isLoggedIn, function(req, res) {
+    res.render('pages/restaurant.ejs', {
+      user: req.user
+    });
+  });
+  app.post('/api/restaurants', isLoggedIn, function(req, res) {
+    controllerRestaurant.save(req, res, upload, function(status) {
+      if (status) {
+        res.render('pages/confirm.ejs');
+      }
+    });
+  });
+  app.get('/api/restaurants', function(req, res) {
+    controllerRestaurant.findAll(req, res);
+  });
+  app.delete('/api/restaurants/:id', isLoggedIn, function(req, res) {
+    controllerRestaurant.delete(req, res);
+  });
+
 };
 
 

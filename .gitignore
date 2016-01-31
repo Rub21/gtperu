@@ -12,6 +12,7 @@
 *.pbf
 node_modules/
 uploads/
+atest/
 .DS_Store
 *.png
 *.jpge

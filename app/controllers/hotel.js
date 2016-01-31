@@ -1,6 +1,6 @@
 var Hotel = require('./../models/hotel');
 module.exports = {
-  save: function(req, res, upload) {
+  save: function(req, res, upload, done) {
     upload(req, res, function(err) {
       if (err) {
         return res.end("Error uploading file.");
@@ -29,9 +29,10 @@ module.exports = {
         });
       }
       hotel.save(function(err) {
-        if (err)
+        if (err) {
           res.send(err);
-        res.redirect('/confirm.html');
+        }
+        done(true);
       });
     });
   },

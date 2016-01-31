@@ -11,7 +11,6 @@ var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-
 var configDB = require('./config/database.js');
 var configPassport = require('./config/passport');
 var routes = require('./routes.js');
@@ -20,7 +19,7 @@ mongoose.connect(configDB.url);
 configPassport(passport);
 
 var port = process.env.PORT || 3000;
-var TOKEN_SECRET = process.env.TOKEN_SECRET || "tokenultrasecreto";
+var TOKEN_SECRET = process.env.TOKEN_SECRET || "mytocket";
 
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
@@ -56,39 +55,6 @@ var upload = multer({
 routes(app, passport, upload);
 
 
-// var router = express.Router();
-// router.use(function(req, res, next) {
-//   console.log('logging');
-//   next();
-// });
-
-// app.get('/hotel', function(req, res) {
-//   res.render('pages/hotel');
-// });
-
-// app.post('api/hoteles', function(req, res) {
-//   console.log('api/hoteles');
-//   controllerHotel.save(req, res, upload);
-// });
-
-
-
-//hotel
-// router.route('/hoteles')
-//   .post(function(req, res) {
-//     controllerHotel.save(req, res, upload);
-//   })
-//   .get(function(req, res) {
-//     controllerHotel.findAll(req, res);
-//     res.render('pages/hotel');
-//   });
-
-
-
-// router.route('/hoteles/:id')
-//   .delete(function(req, res) {
-//     controllerHotel.delete(req, res);
-//   });
 // //restaurant
 // router.route('/restaurants')
 //   .post(function(req, res) {
@@ -101,6 +67,8 @@ routes(app, passport, upload);
 //   .delete(function(req, res) {
 //     controllerRestaurant.delete(req, res);
 //   });
+
+
 // //transporte
 // router.route('/transportes')
 //   .post(function(req, res) {
