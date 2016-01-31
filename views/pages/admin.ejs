@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include ../partials/head %>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <!-- Jumbotron -->
+    <div class="jumbotron">
+      <h2>Ayacucho la mejor alternativa en Turismo!</h2>
+      <p class="lead">Sitio para registrar  el producto  turístico de la Región de Ayacucho. </p>
+      <a class="btn btn-large btn-success" href="../index.html">Visualizar Puntos Registrados</a>
+    </div>
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    <p>
+      <strong>User </strong>: <%= user.local.email %><br>
+    </p>
+    <h4>Recursos:</h4>
+    <div id="recursos"  class="container span12 well" >
+    </div>
+    <h4>Hoteles:</h4>
+    <div id="hoteles"  class="container span12 well" >
+    </div>
+    <h4>Restaurantes:</h4>
+    <div id="restaurants"  class="container span12 well" >
+    </div>
+    <h4>Medios de Transporte:</h4>
+    <div id="transportes"  class="container span12 well" >
+    </div>
+    <h4>Servicios complementarios:</h4>
+    <div id="complementarios"  class="container span12 well" >
+    </div>
+  </body>
+  <!--Scripts-->
+  <script src='js/mapbox0.6.js'></script>
+  <script src='js/jquery-1.8.2.js'></script>
+  <script src="js/jquery.validate.js"></script>
+  <script src='js/underscore.min.js'></script>
+  <script src='js/bootstrap.js'></script>
+  <script src='js/fun_map.js' ></script>
+  <script src='js/app.js' ></script>
+  <script src='js/form_recurso.js' ></script>
+  <script src='js/form_hotel.js' ></script>
+  <script src='js/form_restaurant.js' ></script>
+  <script src='js/form_transporte.js' ></script>
+  <script src='js/form_validate.js' ></script>
+  <script src='js/delete.js'></script>
+</html>
