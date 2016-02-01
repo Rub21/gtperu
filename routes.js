@@ -9,7 +9,6 @@ module.exports = function(app, passport, upload) {
   app.get('/', function(req, res) {
     res.render('pages/index.ejs');
   });
-  //==============================================USER
   //login
   app.get('/login', function(req, res) {
     res.render('pages/login.ejs', {
@@ -50,15 +49,14 @@ module.exports = function(app, passport, upload) {
     failureRedirect: '/login',
     failureFlash: true
   }));
-  //=============================================ADMIN
-
+  //ADMIN
   app.get('/admin', isLoggedIn, function(req, res) {
     res.render('pages/admin.ejs', {
       user: req.user
     });
   });
 
-  //=============================================HOTEL
+  //HOTEL
   app.get('/hotel', isLoggedIn, function(req, res) {
     res.render('pages/hotel.ejs', {
       user: req.user
@@ -78,8 +76,8 @@ module.exports = function(app, passport, upload) {
     controllerHotel.delete(req, res);
   });
 
-  //=============================================RESTAURANTS
-  app.get('/restaurants', isLoggedIn, function(req, res) {
+  //RESTAURANTS
+  app.get('/restaurant', isLoggedIn, function(req, res) {
     res.render('pages/restaurant.ejs', {
       user: req.user
     });
@@ -97,9 +95,65 @@ module.exports = function(app, passport, upload) {
   app.delete('/api/restaurants/:id', isLoggedIn, function(req, res) {
     controllerRestaurant.delete(req, res);
   });
+  //TRANSPORTE
+  app.get('/transporte', isLoggedIn, function(req, res) {
+    res.render('pages/transporte.ejs', {
+      user: req.user
+    });
+  });
+  app.post('/api/transportes', isLoggedIn, function(req, res) {
+    controllerTransporte.save(req, res, upload, function(status) {
+      if (status) {
+        res.render('pages/confirm.ejs');
+      }
+    });
+  });
+  app.get('/api/transportes', function(req, res) {
+    controllerTransporte.findAll(req, res);
+  });
+  app.delete('/api/transportes/:id', isLoggedIn, function(req, res) {
+    controllerTransporte.delete(req, res);
+  });
 
+  //COMPLEMENTARIO
+  app.get('/complementario', isLoggedIn, function(req, res) {
+    res.render('pages/complementario.ejs', {
+      user: req.user
+    });
+  });
+  app.post('/api/complementarios', isLoggedIn, function(req, res) {
+    controllerComplementario.save(req, res, upload, function(status) {
+      if (status) {
+        res.render('pages/confirm.ejs');
+      }
+    });
+  });
+  app.get('/api/complementarios', function(req, res) {
+    controllerComplementario.findAll(req, res);
+  });
+  app.delete('/api/complementarios/:id', isLoggedIn, function(req, res) {
+    controllerComplementario.delete(req, res);
+  });
+  //RECURSO
+  app.get('/recurso', isLoggedIn, function(req, res) {
+    res.render('pages/recurso.ejs', {
+      user: req.user
+    });
+  });
+  app.post('/api/recursos', isLoggedIn, function(req, res) {
+    controllerRecurso.save(req, res, upload, function(status) {
+      if (status) {
+        res.render('pages/confirm.ejs');
+      }
+    });
+  });
+  app.get('/api/recursos', function(req, res) {
+    controllerRecurso.findAll(req, res);
+  });
+  app.delete('/api/recursos/:id', isLoggedIn, function(req, res) {
+    controllerRecurso.delete(req, res);
+  });
 };
-
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated())

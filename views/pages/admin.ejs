@@ -11,9 +11,9 @@
       <p class="lead">Sitio para registrar  el producto  turístico de la Región de Ayacucho. </p>
       <a class="btn btn-large btn-success" href="../index.html">Visualizar Puntos Registrados</a>
     </div>
-    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     <p>
-      <strong>User </strong>: <%= user.local.email %><br>
+      <strong>Usuario :</strong> <%= user.local.email %> <br>
+      <a href="/logout" >Cerrar sesión</a>
     </p>
     <h4>Recursos:</h4>
     <div id="recursos"  class="container span12 well" >
@@ -30,6 +30,9 @@
     <h4>Servicios complementarios:</h4>
     <div id="complementarios"  class="container span12 well" >
     </div>
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
   </body>
   <!--Scripts-->
   <script src='js/mapbox0.6.js'></script>

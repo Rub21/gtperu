@@ -1,6 +1,6 @@
 var Recurso = require('./../models/recurso');
 module.exports = {
-  save: function(req, res, upload) {
+  save: function(req, res, upload,done) {
     upload(req, res, function(err) {
       if (err) {
         return res.end("Error uploading file.");
@@ -41,10 +41,7 @@ module.exports = {
       recurso.save(function(err) {
         if (err)
           res.send(err);
-        // res.json({
-        //   message: 'Recurso created!'
-        // });
-        res.redirect('/confirm.html');
+        done(true);
       });
     });
   },
