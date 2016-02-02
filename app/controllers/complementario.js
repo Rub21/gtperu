@@ -18,6 +18,7 @@ module.exports = {
       complementario.direccion = data.direccion;
       complementario.telefono = data.telefono;
       complementario.sitio_web = data.sitio_web;
+      complementario.horario_atencion = data.horario_atencion;
       complementario.latitud = parseFloat(data.lat);
       complementario.longitud = parseFloat(data.lon);
       complementario.imagenes = [];
