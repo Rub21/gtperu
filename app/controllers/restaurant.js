@@ -46,6 +46,11 @@ module.exports = {
       res.json(restaurantes);
     });
   },
+  list: function(done) {
+    Restaurant.find(function(err, restaurantes) {
+      done(err, restaurantes);
+    });
+  },
   delete: function(req, res) {
     console.log(req.params.id);
     Restaurant.remove({

@@ -8,7 +8,6 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var transporte = new Transporte();
-      console.log(data);
       transporte.idtransporte = 'rr';
       transporte.descripcion = data.descripcion;
       transporte.tipo = data.tipo;
@@ -21,6 +20,7 @@ module.exports = {
       transporte.latitud = parseFloat(data.lat);
       transporte.longitud = parseFloat(data.lon);
       transporte.idproducto = 'uuid';
+      transporte.clase = 'Transporte';
       transporte.nombre = data.nombre;
       transporte.estado = true;
       transporte.imagenes = [];
@@ -41,6 +41,11 @@ module.exports = {
       if (err)
         res.send(err);
       res.json(transportes);
+    });
+  },
+  list: function(done) {
+    Transporte.find(function(err, transportes) {
+      done(err, transportes);
     });
   },
   delete: function(req, res) {

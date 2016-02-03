@@ -4,6 +4,7 @@ var TransporteSchema = new Schema({
   idtransporte: String,
   descripcion: String,
   tipo: String,
+  clase: String,
   direccion: String,
   telefono: String,
   sitio_web: String,

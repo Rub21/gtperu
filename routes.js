@@ -153,6 +153,25 @@ module.exports = function(app, passport, upload) {
   app.delete('/api/recursos/:id', isLoggedIn, function(req, res) {
     controllerRecurso.delete(req, res);
   });
+
+  //SERVICIO
+  app.get('/api/servicios', function(req, res) {
+    var arr = [];
+    controllerHotel.list(function(err, arr1) {
+      console.log(arr1);
+      arr = arr.concat(arr1);
+      controllerRestaurant.list(function(err, arr2) {
+        arr = arr.concat(arr2);
+        controllerTransporte.list(function(err, arr3) {
+          arr = arr.concat(arr3);
+          controllerComplementario.list(function(err, arr4) {
+            arr = arr.concat(arr4);
+            res.json(arr);
+          });
+        });
+      });
+    });
+  });
 };
 
 function isLoggedIn(req, res, next) {

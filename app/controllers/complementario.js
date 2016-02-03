@@ -41,6 +41,11 @@ module.exports = {
       res.json(complementarios);
     });
   },
+  list: function(done) {
+    Complementario.find(function(err, complementarios) {
+      done(err, complementarios);
+    });
+  },
   delete: function(req, res) {
     console.log(req.params.id);
     Complementario.remove({
