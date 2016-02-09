@@ -22,10 +22,12 @@
     "xhr": "^2.2.0"
   },
   "devDependencies": {
-    "browserify": "^13.0.0"
+    "browserify": "^13.0.0",
+    "forever": "^0.15.1"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "./node_modules/.bin/forever start index.js && ./node_modules/.bin/forever list",
+    "stop": "./node_modules/.bin/forever stop index.js"
   },
   "author": "Ruben Lopez M (http://rub21.github.io/)",
   "license": "ISC"
