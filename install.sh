@@ -11,4 +11,5 @@ sudo apt-get update
 sudo apt-get install -y mongodb-org
 git clone -b gh-pages https://github.com/Rub21/gtur.git
 cd gtur/
+npm install
 npm start
