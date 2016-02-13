@@ -62,17 +62,17 @@ module.exports = function(app, passport, upload) {
       user: req.user
     });
   });
-  app.post('/api/hoteles', isLoggedIn, function(req, res) {
-     controllerHotel.save(req, res, upload, function(status) {
+  app.post('/hoteles', isLoggedIn, function(req, res) {
+    controllerHotel.save(req, res, upload, function(status) {
       if (status) {
         res.render('pages/confirm.ejs');
       }
     });
   });
-  app.get('/api/hoteles', function(req, res) {
+  app.get('/hoteles', isLoggedIn, function(req, res) {
     controllerHotel.findAll(req, res);
   });
-  app.delete('/api/hoteles/:id', isLoggedIn, function(req, res) {
+  app.delete('/hoteles/:id', isLoggedIn, function(req, res) {
     controllerHotel.delete(req, res);
   });
 
@@ -82,17 +82,17 @@ module.exports = function(app, passport, upload) {
       user: req.user
     });
   });
-  app.post('/api/restaurants', isLoggedIn, function(req, res) {
+  app.post('/restaurants', isLoggedIn, function(req, res) {
     controllerRestaurant.save(req, res, upload, function(status) {
       if (status) {
         res.render('pages/confirm.ejs');
       }
     });
   });
-  app.get('/api/restaurants', function(req, res) {
+  app.get('/restaurants', isLoggedIn, function(req, res) {
     controllerRestaurant.findAll(req, res);
   });
-  app.delete('/api/restaurants/:id', isLoggedIn, function(req, res) {
+  app.delete('/restaurants/:id', isLoggedIn, function(req, res) {
     controllerRestaurant.delete(req, res);
   });
   //TRANSPORTE
@@ -101,17 +101,17 @@ module.exports = function(app, passport, upload) {
       user: req.user
     });
   });
-  app.post('/api/transportes', isLoggedIn, function(req, res) {
+  app.post('/transportes', isLoggedIn, function(req, res) {
     controllerTransporte.save(req, res, upload, function(status) {
       if (status) {
         res.render('pages/confirm.ejs');
       }
     });
   });
-  app.get('/api/transportes', function(req, res) {
+  app.get('/transportes', isLoggedIn, function(req, res) {
     controllerTransporte.findAll(req, res);
   });
-  app.delete('/api/transportes/:id', isLoggedIn, function(req, res) {
+  app.delete('/transportes/:id', isLoggedIn, function(req, res) {
     controllerTransporte.delete(req, res);
   });
 
@@ -121,17 +121,17 @@ module.exports = function(app, passport, upload) {
       user: req.user
     });
   });
-  app.post('/api/complementarios', isLoggedIn, function(req, res) {
+  app.post('/complementarios', isLoggedIn, function(req, res) {
     controllerComplementario.save(req, res, upload, function(status) {
       if (status) {
         res.render('pages/confirm.ejs');
       }
     });
   });
-  app.get('/api/complementarios', function(req, res) {
+  app.get('/complementarios', isLoggedIn, function(req, res) {
     controllerComplementario.findAll(req, res);
   });
-  app.delete('/api/complementarios/:id', isLoggedIn, function(req, res) {
+  app.delete('/complementarios/:id', isLoggedIn, function(req, res) {
     controllerComplementario.delete(req, res);
   });
   //RECURSO
@@ -140,37 +140,18 @@ module.exports = function(app, passport, upload) {
       user: req.user
     });
   });
-  app.post('/api/recursos', isLoggedIn, function(req, res) {
+  app.post('/recursos', isLoggedIn, function(req, res) {
     controllerRecurso.save(req, res, upload, function(status) {
       if (status) {
         res.render('pages/confirm.ejs');
       }
     });
   });
-  app.get('/api/recursos', function(req, res) {
+  app.get('/recursos', function(req, res) {
     controllerRecurso.findAll(req, res);
   });
-  app.delete('/api/recursos/:id', isLoggedIn, function(req, res) {
+  app.delete('/recursos/:id', isLoggedIn, function(req, res) {
     controllerRecurso.delete(req, res);
-  });
-
-  //SERVICIO
-  app.get('/api/servicios', function(req, res) {
-    var arr = [];
-    controllerHotel.list(function(err, arr1) {
-      console.log(arr1);
-      arr = arr.concat(arr1);
-      controllerRestaurant.list(function(err, arr2) {
-        arr = arr.concat(arr2);
-        controllerTransporte.list(function(err, arr3) {
-          arr = arr.concat(arr3);
-          controllerComplementario.list(function(err, arr4) {
-            arr = arr.concat(arr4);
-            res.json(arr);
-          });
-        });
-      });
-    });
   });
 };
 

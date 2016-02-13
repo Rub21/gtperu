@@ -13,7 +13,7 @@ var session = require('express-session');
 
 var configDB = require('./config/database.js');
 var configPassport = require('./config/passport');
-var routes = require('./routes.js');
+var routes = require('./routes-admin.js');
 
 mongoose.connect(configDB.url);
 configPassport(passport);

@@ -8,7 +8,6 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var restaurant = new Restaurant();
-      console.log(data);
       restaurant.idrestaurant = 'hhh';
       restaurant.categoria = data.categoria;
       restaurant.tipo = data.tipo;
@@ -26,6 +25,8 @@ module.exports = {
       restaurant.nombre = data.nombre;
       restaurant.clase = "Restaurant";
       restaurant.estado = true;
+      //owner
+      restaurant.owner = req.user.local.email;
       restaurant.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         restaurant.imagenes.push({
@@ -40,7 +41,9 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    Restaurant.find(function(err, restaurantes) {
+    Restaurant.find({
+      owner: req.user.local.email
+    }, function(err, restaurantes) {
       if (err)
         res.send(err);
       res.json(restaurantes);

@@ -1,7 +1,7 @@
 //recursos
 function load_list_recursos() {
   $('#recursos').empty();
-  $.getJSON("/api/recursos", function(data) {
+  $.getJSON("/recursos", function(data) {
     var items = [];
     $.each(data, function(key, val) {
       items.push('<li  id="' + key + '">' + val.nombre + '-' + '<a  href="#"  onclick="rm_recursos(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a></li>');
@@ -16,7 +16,7 @@ function load_list_recursos() {
 function rm_recursos(id, nombre) {
   if (confirm('Deceas eliminar : ' + nombre)) {
     $.ajax({
-      url: '/api/recursos/' + id,
+      url: '/recursos/' + id,
       type: 'DELETE'
     });
     load_list_recursos();
@@ -27,7 +27,7 @@ function rm_recursos(id, nombre) {
 //hoteles
 function load_list_hoteles() {
   $('#hoteles').empty();
-  $.getJSON("/api/hoteles", function(data) {
+  $.getJSON("/hoteles", function(data) {
     var items = [];
     $.each(data, function(key, val) {
       items.push('<li  id="' + key + '">' + val.nombre + '-' + '<a  href="#"  onclick="rm_hoteles(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a></li>');
@@ -42,7 +42,7 @@ function load_list_hoteles() {
 function rm_hoteles(id, nombre) {
   if (confirm('Deceas eliminar : ' + nombre)) {
     $.ajax({
-      url: '/api/hoteles/' + id,
+      url: '/hoteles/' + id,
       type: 'DELETE'
     });
     load_list_hoteles();
@@ -53,7 +53,7 @@ function rm_hoteles(id, nombre) {
 //restaurants
 function load_list_restaurants() {
   $('#restaurants').empty();
-  $.getJSON("/api/restaurants", function(data) {
+  $.getJSON("/restaurants", function(data) {
     var items = [];
     $.each(data, function(key, val) {
       items.push('<li  id="' + key + '">' + val.nombre + '-' + '<a  href="#"  onclick="rm_restaurants(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a></li>');
@@ -68,7 +68,7 @@ function load_list_restaurants() {
 function rm_restaurants(id, nombre) {
   if (confirm('Deceas eliminar : ' + nombre)) {
     $.ajax({
-      url: '/api/restaurants/' + id,
+      url: '/restaurants/' + id,
       type: 'DELETE'
     });
     load_list_restaurants();
@@ -78,7 +78,7 @@ function rm_restaurants(id, nombre) {
 //transportes
 function load_list_transportes() {
   $('#transportes').empty();
-  $.getJSON("/api/transportes", function(data) {
+  $.getJSON("/transportes", function(data) {
     var items = [];
     $.each(data, function(key, val) {
       items.push('<li  id="' + key + '">' + val.nombre + '-' + '<a  href="#"  onclick="rm_transportes(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a></li>');
@@ -93,7 +93,7 @@ function load_list_transportes() {
 function rm_transportes(id, nombre) {
   if (confirm('Deceas eliminar : ' + nombre)) {
     $.ajax({
-      url: '/api/transportes/' + id,
+      url: '/transportes/' + id,
       type: 'DELETE'
     });
     load_list_transportes();
@@ -103,7 +103,7 @@ function rm_transportes(id, nombre) {
 //complementarios
 function load_list_complementarios() {
   $('#complementarios').empty();
-  $.getJSON("/api/complementarios", function(data) {
+  $.getJSON("/complementarios", function(data) {
     var items = [];
     $.each(data, function(key, val) {
       items.push('<li  id="' + key + '">' + val.nombre + '-' + '<a  href="#"  onclick="rm_complementarios(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a></li>');
@@ -118,7 +118,7 @@ function load_list_complementarios() {
 function rm_complementarios(id, nombre) {
   if (confirm('Deceas eliminar : ' + nombre)) {
     $.ajax({
-      url: '/api/complementarios/' + id,
+      url: '/complementarios/' + id,
       type: 'DELETE'
     });
     load_list_complementarios();

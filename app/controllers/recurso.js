@@ -1,6 +1,6 @@
 var Recurso = require('./../models/recurso');
 module.exports = {
-  save: function(req, res, upload,done) {
+  save: function(req, res, upload, done) {
     upload(req, res, function(err) {
       if (err) {
         return res.end("Error uploading file.");
@@ -8,7 +8,6 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var recurso = new Recurso();
-      console.log(data);
       recurso.idrecurso = 'uuid';
       recurso.categoria = data.categoria;
       recurso.tipo = data.tipo;
@@ -32,6 +31,8 @@ module.exports = {
       recurso.nombre = data.nombre;
       recurso.clase = 'Clase';
       recurso.estado = true;
+      //owner
+      recurso.owner = req.user.local.email;
       recurso.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         recurso.imagenes.push({
@@ -46,16 +47,18 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    Recurso.find(function(err, recursoes) {
+    Recurso.find({
+      owner: req.user.local.email
+    },function(err, recursoes) {
       if (err)
         res.send(err);
       //console.log(recursoes);
       res.json(recursoes);
     });
   },
-  
+
   delete: function(req, res) {
-    console.log( req.params.id);
+    console.log(req.params.id);
     Recurso.remove({
       _id: req.params.id
     }, function(err, bear) {

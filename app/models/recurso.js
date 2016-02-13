@@ -25,6 +25,7 @@ var RecursoShema = new Schema({
   idproducto: String,
   nombre: String,
   clase: String,
-  estado: Boolean
+  estado: Boolean,
+  owner: String
 });
 module.exports = mongoose.model('Recurso', RecursoShema);

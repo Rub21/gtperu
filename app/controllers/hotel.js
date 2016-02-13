@@ -22,6 +22,8 @@ module.exports = {
       hotel.formas_pago = data.formas_de_pago;
       hotel.latitud = parseFloat(data.lat);
       hotel.longitud = parseFloat(data.lon);
+      //owner
+      hotel.owner = req.user.local.email;
       hotel.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         hotel.imagenes.push({
@@ -37,7 +39,9 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    Hotel.find(function(err, hoteles) {
+    Hotel.find({
+      owner: req.user.local.email
+    }, function(err, hoteles) {
       if (err)
         res.send(err);
       res.json(hoteles);

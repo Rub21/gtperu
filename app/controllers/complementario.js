@@ -7,7 +7,6 @@ module.exports = {
       }
       var data = req.body;
       var files = req.files;
-      console.log(data);
       var complementario = new Complementario();
       complementario.idcomplementario = 'hhh';
       complementario.clase = "Complementario";
@@ -21,6 +20,8 @@ module.exports = {
       complementario.horario_atencion = data.horario_atencion;
       complementario.latitud = parseFloat(data.lat);
       complementario.longitud = parseFloat(data.lon);
+      //owner
+      complementario.owner = req.user.local.email;
       complementario.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         complementario.imagenes.push({
@@ -35,7 +36,9 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    Complementario.find(function(err, complementarios) {
+    Complementario.find({
+      owner: req.user.local.email
+    },function(err, complementarios) {
       if (err)
         res.send(err);
       res.json(complementarios);

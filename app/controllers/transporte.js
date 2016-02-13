@@ -23,6 +23,8 @@ module.exports = {
       transporte.clase = 'Transporte';
       transporte.nombre = data.nombre;
       transporte.estado = true;
+      //owner
+      transporte.owner = req.user.local.email;
       transporte.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         transporte.imagenes.push({
@@ -37,7 +39,9 @@ module.exports = {
     });
   },
   findAll: function(req, res) {
-    Transporte.find(function(err, transportes) {
+    Transporte.find({
+      owner: req.user.local.email
+    }, function(err, transportes) {
       if (err)
         res.send(err);
       res.json(transportes);
