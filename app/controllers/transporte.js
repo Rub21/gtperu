@@ -47,6 +47,13 @@ module.exports = {
       res.json(transportes);
     });
   },
+  findPublic: function(req, res) {
+    Transporte.find(function(err, transportes) {
+      if (err)
+        res.send(err);
+      res.json(transportes);
+    });
+  },
   list: function(done) {
     Transporte.find(function(err, transportes) {
       done(err, transportes);

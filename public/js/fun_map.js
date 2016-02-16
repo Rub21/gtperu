@@ -10,9 +10,9 @@ $(function() {
     m.ui.attribution.add().content('<a href="http://mapbox.com/about/maps">Terms &amp; Feedback</a>');
     m.ui.zoomer.add();
     m.centerzoom({
-        lat: -13.16048,
-        lon: -74.22565
-    }, 8);
+        lat: -8.679,
+        lon: -73.378
+    }, 6);
 
     var markerEvents = {
         touchstart: onDown,

@@ -38,7 +38,14 @@ module.exports = {
   findAll: function(req, res) {
     Complementario.find({
       owner: req.user.local.email
-    },function(err, complementarios) {
+    }, function(err, complementarios) {
+      if (err)
+        res.send(err);
+      res.json(complementarios);
+    });
+  },
+  findPublic: function(req, res) {
+    Complementario.find(function(err, complementarios) {
       if (err)
         res.send(err);
       res.json(complementarios);

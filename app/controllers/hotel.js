@@ -47,6 +47,13 @@ module.exports = {
       res.json(hoteles);
     });
   },
+  findPublic: function(req, res) {
+    Hotel.find(function(err, hoteles) {
+      if (err)
+        res.send(err);
+      res.json(hoteles);
+    });
+  },
   list: function(done) {
     Hotel.find(function(err, hoteles) {
       done(err, hoteles);

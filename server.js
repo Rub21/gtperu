@@ -13,7 +13,8 @@ var session = require('express-session');
 
 var configDB = require('./config/database.js');
 var configPassport = require('./config/passport');
-var routes = require('./routes-admin.js');
+var routesAdmin = require('./routes-admin.js');
+var routesApi = require('./routes-api.js');
 
 mongoose.connect(configDB.url);
 configPassport(passport);
@@ -52,6 +53,7 @@ var upload = multer({
   storage: storage
 }).any();
 
-routes(app, passport, upload);
+routesApi(app, passport, upload);
+routesAdmin(app, passport, upload);
 app.listen(port);
 console.log('Running on port ' + port);

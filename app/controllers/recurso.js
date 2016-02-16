@@ -49,10 +49,17 @@ module.exports = {
   findAll: function(req, res) {
     Recurso.find({
       owner: req.user.local.email
-    },function(err, recursoes) {
+    }, function(err, recursoes) {
       if (err)
         res.send(err);
       //console.log(recursoes);
+      res.json(recursoes);
+    });
+  },
+  findPublic: function(req, res) {
+    Recurso.find(function(err, recursoes) {
+      if (err)
+        res.send(err);
       res.json(recursoes);
     });
   },
