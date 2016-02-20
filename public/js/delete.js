@@ -3,8 +3,11 @@ function load_list_recursos() {
   $('#recursos').empty();
   $.getJSON("/recursos", function(data) {
     var items = [];
+    recursoData = data;
     $.each(data, function(key, val) {
-      items.push('<li  id="' + key + '">' + val.nombre + '-' + '<a  href="#"  onclick="rm_recursos(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a></li>');
+      items.push('<li  id="' + key + '">' + val.nombre + '-' +
+        '<a  href="#"  onclick="rm_recursos(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Eliminar </a>' +
+        '<a  href="#"  onclick="up_recursos(\'' + val._id + '\',\'' + val.nombre + '\')" href="#" > Actualizar </a></li>');
     });
     $("<ul/>", {
       "class": "list",
@@ -22,6 +25,15 @@ function rm_recursos(id, nombre) {
     load_list_recursos();
   } else {}
 }
+
+
+function up_recursos(id, nombre) {
+  var recurso = recursoData.filter(function(val) {
+    return val._id === id;
+  });
+  window.location = "/recurso/#" + id;
+}
+
 
 
 //hoteles
@@ -125,6 +137,7 @@ function rm_complementarios(id, nombre) {
   } else {}
 }
 
+var recursoData = [];
 
 load_list_recursos();
 load_list_hoteles();
