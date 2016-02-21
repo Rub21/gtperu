@@ -8,37 +8,32 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var recurso = new Recurso();
+      recurso.idproducto = 'xxx';
       recurso.idrecurso = 'uuid';
+      recurso.nombre = data.nombre;
       recurso.categoria = data.categoria;
       recurso.tipo = data.tipo;
       recurso.descripcion = data.descripcion;
-      recurso.historia = data.historia;
-      recurso.corredor = data.corredor;
-      recurso.distancia = data.distancia;
-      recurso.tipo_precio_ing = data.costo_de_ingreso;
+
+      recurso.costo_de_ingreso = data.costo_de_ingreso;
+
       recurso.horario_atencion = data.horario_de_atencion;
       recurso.temperatura = data.temperatura;
       recurso.altitud = data.altitud;
       recurso.video = data.video;
       recurso.como_llegar = data.como_llegar;
-      recurso.transporte = [{
-        idtransporte: 'String'
-      }];
-      recurso.latitud = parseFloat(data.lat);
-      recurso.longitud = parseFloat(data.lon);
-
-      recurso.idproducto = 'uuid';
-      recurso.nombre = data.nombre;
-      recurso.clase = 'Clase';
-      recurso.estado = true;
-      //owner
-      recurso.owner = req.user.local.email;
+      recurso.latitud = parseFloat(data.latitud);
+      recurso.longitud = parseFloat(data.latitud);
       recurso.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         recurso.imagenes.push({
           url: files[i].filename
         });
       }
+      //Lllenar en aqui
+      recurso.estado = true;
+      recurso.owner = req.user.local.email;
+
       recurso.save(function(err) {
         if (err)
           res.send(err);

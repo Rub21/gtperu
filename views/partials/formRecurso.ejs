@@ -1,0 +1,98 @@
+<form class = "well" name="form" id="form" method="post"  action="/recursos" enctype="multipart/form-data" >
+  <!-- nombre -->
+  <div class="form-group row">
+    <label for="nombre" class="col-sm-2 form-control-label">Nombre</label>
+    <div class="col-sm-10">
+      <input   name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+    </div>
+  </div>
+  <!-- categoria -->
+  <div class="form-group row">
+    <label for="categoria" class="col-sm-2 form-control-label" >Example </label>
+    <div class="col-sm-10">
+      <select name ="categoria"class="form-control " id="categoria">
+        <option value='Sitios Arqueológicos'>Sitios Arqueológicos</option>
+        <option value='Arquitectura Colonial'>Arquitectura Colonial</option>
+        <option value='Sitios Historicos'>Sitios Historicos</option>
+        <option value='Cultura Viva'>Cultura Viva</option>
+        <option value='Paisaje Natural'>Paisaje Natural</option>
+      </select>
+    </div>
+  </div>
+  <!-- Tipo -->
+  <div class="form-group row">
+    <label for="tipo" class="col-sm-2 form-control-label" >Tipo</label>
+    <div class="col-sm-10">
+      <select name="tipo" class="form-control" id="tipo">
+        <option value='Conjunto Arqueológico'>Conjunto Arqueológico</option>
+        <option value='Sitio Arqueológico'>Sitio Arqueológico</option>
+        <option value='Camino'>Camino</option>
+        <option value='Andenes'>Andenes</option>
+        <option value='Sistema de Riego'>Sistema de Riego</option>
+      </select>
+    </div>
+  </div>
+  <!-- descripcion -->
+  <div class="form-group row">
+    <label for="descripcion" class="col-sm-2 form-control-label">Descripción</label>
+    <div class="col-sm-10">
+      <textarea  name="descripcion" rows='5' cols='75' class="form-control" id="descripcion" placeholder="Descripción"></textarea>
+    </div>
+  </div>
+  <h4>Detalles del recurso</h4>
+  <div class="form-group row">
+    <label for="costo_de_ingreso" class="col-sm-2 form-control-label">Tipo y precio de ingreso</label>
+    <div class="col-sm-10">
+      <input   name="costo_de_ingreso" type="text" class="form-control" id="costo_de_ingreso" placeholder="Libre.">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="horario_de_atencion" class="col-sm-2 form-control-label">Horario de atención</label>
+    <div class="col-sm-10">
+      <input   name="horario_de_atencion" type="text" class="form-control" id="horario_de_atencion" placeholder="8am-5pm">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="temperatura" class="col-sm-2 form-control-label">Temperatura máx. y mín.</label>
+    <div class="col-sm-10">
+      <input   name="temperatura" type="text" class="form-control" id="temperatura" placeholder="8am-5pm">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="altitud" class="col-sm-2 form-control-label">Altitud</label>
+    <div class="col-sm-10">
+      <input   name="altitud" type="text" class="form-control" id="altitud" placeholder="600m snm">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="video" class="col-sm-2 form-control-label">URL del video</label>
+    <div class="col-sm-10">
+      <input   name="video" type="text" class="form-control" id="video" placeholder="Ingrese URL de Youtube">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="como_llegar" class="col-sm-2 form-control-label">Como llegar</label>
+    <div class="col-sm-10">
+      <textarea  name="como_llegar" rows='5' cols='75' class="form-control" id="como_llegar" placeholder="Como llegar"></textarea>
+    </div>
+  </div>
+  <h4>Localización</h4>
+  <!-- latitude -->
+  <div class="form-group row">
+    <label for="latitud" class="col-sm-2 form-control-label">latitud</label>
+    <div class="col-sm-10">
+      <input   name="latitud" type="text" class="form-control number" id="latitud" placeholder="Latitud">
+    </div>
+  </div>
+  <!-- longitud -->
+  <div class="form-group row">
+    <label for="longitud" class="col-sm-2 form-control-label">Longitud</label>
+    <div class="col-sm-10">
+      <input   name="longitud" type="text" class="form-control numbre" id="longitud" placeholder="longitud">
+    </div>
+  </div>
+  <% include map %>
+  <% include addImages %>
+  <button type="submit" class="btn btn-primary" id="button">Registrar</button>
+  <a class="btn" id="clear" href="/index">Cancelar</a>
+</form>
