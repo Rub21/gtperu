@@ -6,7 +6,7 @@ $.getJSON("/recursos", function(data) {
   jQuery("#toolbar").jqGrid({
     data: recursoData,
     datatype: "local",
-    height: 255,
+    height: 350,
     width: 'auto',
     colNames: [
       'Nombre',
@@ -24,7 +24,7 @@ $.getJSON("/recursos", function(data) {
     }, {
       name: '_id',
       index: '_id',
-      width: 60
+      width: 50
     }],
     rowNum: 50,
     rowTotal: 2000,
@@ -38,7 +38,7 @@ $.getJSON("/recursos", function(data) {
     sortname: 'item_id',
     viewrecords: true,
     sortorder: "asc",
-    caption: "Toolbar Searching"
+    caption: "Producto turistico "
   });
 
   jQuery("#toolbar").jqGrid('navGrid', '#ptoolbar', {
@@ -68,9 +68,8 @@ function getSelectedRow() {
     alert("No rows are selected");
 }
 
-
 function fillForm(obj) {
-   console.log(obj);
+  console.log(obj);
   $('#idproducto').val(obj.idproducto);
   $('#idrecurso').val(obj.idrecurso);
   $('#nombre').val(obj.nombre);
