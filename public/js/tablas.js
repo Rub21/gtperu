@@ -63,6 +63,26 @@ function getSelectedRow() {
       return rowData._id === val._id;
     });
     console.log(recurso);
+    fillForm(recurso);
   } else
     alert("No rows are selected");
+}
+
+
+function fillForm(obj) {
+   console.log(obj);
+  $('#idproducto').val(obj.idproducto);
+  $('#idrecurso').val(obj.idrecurso);
+  $('#nombre').val(obj.nombre);
+  $('#categoria').val(obj.categoria);
+  $('#tipo').val(obj.tipo);
+  $('#descripcion').val(obj.descripcion);
+  $('#costo_de_ingreso').val(obj.costo_de_ingreso);
+  $('#horario_atencion').val(obj.horario_atencion);
+  $('#temperatura').val(obj.temperatura);
+  $('#altitud').val(obj.altitud);
+  $('#video').val(obj.video);
+  $('#como_llegar').val(obj.como_llegar);
+  $('#latitud').val(obj.latitud);
+  $('#longitud').val(obj.longitud);
 }
