@@ -44,11 +44,11 @@ function categorias() {
   var sitio_historicos = ['Santuario Histórico', 'Casa de la capitulación', 'Puente colonial'];
   var cultura_viva = ['Fiesta Tradicional', 'Artesanía', 'Música', 'Danza', 'Otros'];
   var paisaje_natural = ['Valle', 'Mirador', 'Agua termal', 'Laguna', 'Bosque de Piedra', 'Bosque Natural', 'Catarata', 'Nevado', 'Río', 'Cerro', 'Reserva Nacional', 'Santuario Natural', 'Cañón'];
-  $('#categoria-r').change(function() {
+  $('#categoria').change(function() {
     var filter = $(this).val();
-    var parent = document.getElementById("tipo-r"); //select
+    var parent = document.getElementById("tipo"); //select
     var options = '';
-    $("#tipo-r option").remove();
+    $("#tipo option").remove();
     var cat = $(this).val();
     if (cat === tildes_unicode('Sitios Arqueológicos')) {
       _.each(sitios_arqueologicos, function(value, key) {

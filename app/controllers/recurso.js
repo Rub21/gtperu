@@ -14,16 +14,14 @@ module.exports = {
       recurso.categoria = data.categoria;
       recurso.tipo = data.tipo;
       recurso.descripcion = data.descripcion;
-
-      recurso.costo_de_ingreso = data.costo_de_ingreso;
-
-      recurso.horario_atencion = data.horario_de_atencion;
+      recurso.costo_ingreso = data.costo_ingreso;
+      recurso.horario_atencion = data.horario_atencion;
       recurso.temperatura = data.temperatura;
       recurso.altitud = data.altitud;
       recurso.video = data.video;
       recurso.como_llegar = data.como_llegar;
       recurso.latitud = parseFloat(data.latitud);
-      recurso.longitud = parseFloat(data.latitud);
+      recurso.longitud = parseFloat(data.longitud);
       recurso.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         recurso.imagenes.push({

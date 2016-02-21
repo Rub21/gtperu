@@ -4,9 +4,12 @@
     <% include ../partials/head %>
   </head>
   <body>
-   <header>
+    <header>
       <% include ../partials/header %>
     </header>
+    <div class="container">
+      <h2>Registrar Recurso Turístico</h2>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-xs-4">
@@ -23,4 +26,7 @@
   <script src='js/form_recurso.js' ></script>
   <script src='js/form_validate.js' ></script>
   <script src='js/tablas.js' ></script>
+  <script>
+  loadData('recursos');
+  </script>
 </html>

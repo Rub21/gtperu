@@ -1,19 +1,17 @@
-  <div class="content_map">
-    <div class="accordion" id="accordion_mapa">
-      <div class="accordion-group">
-        <div class="accordion-reeading">
-          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse" >
-            Mostrar mapa
-          </a>
-        </div>
-        <div id="collapse" class="accordion-body collapse">
-          <div class="accordion-inner">
-            <div id='map'></div>
-            <div class='left'>
-              <a id='geojsonLayer' href='#'></a>
-            </div>
-          </div>
-        </div>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        Selecionar el punto en el mapa
+      </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div id='map'></div>
+      <div class='left'>
+        <a id='geojsonLayer' href='#'></a>
       </div>
     </div>
   </div>
+</div>

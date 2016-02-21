@@ -7,7 +7,7 @@ var RecursoShema = new Schema({
   categoria: String,
   tipo: String,
   descripcion: String,
-  costo_de_ingreso: String,
+  costo_ingreso: String,
   horario_atencion: String,
   temperatura: String,
   altitud: String,
