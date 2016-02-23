@@ -1,4 +1,4 @@
-var Restaurant = require('./../models/restaurant');
+var Restaurant = require('./../models/mRestaurant');
 module.exports = {
   save: function(req, res, upload, done) {
     upload(req, res, function(err) {
@@ -56,11 +56,6 @@ module.exports = {
       res.json(restaurantes);
     });
   },
-  list: function(done) {
-    Restaurant.find(function(err, restaurantes) {
-      done(err, restaurantes);
-    });
-  },
   delete: function(req, res) {
     console.log(req.params.id);
     Restaurant.remove({
@@ -71,6 +66,28 @@ module.exports = {
       res.json({
         message: 'Successfully deleted'
       });
+    });
+  },
+  //API
+  listAll: function(req, res) {
+    Restaurant.find(function(err, restaurantes) {
+      if (err)
+        res.send(err);
+      res.json(restaurantes);
+    });
+  },
+  listOne: function(req, res) {
+    Restaurant.find({
+      _id: req.params.id
+    }, function(err, restaurantes) {
+      if (err)
+        res.send(err);
+      res.json(restaurantes);
+    });
+  },
+  list: function(done) {
+    Restaurant.find(function(err, restaurantes) {
+      done(err, restaurantes);
     });
   }
 };

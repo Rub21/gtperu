@@ -1,4 +1,4 @@
-var Complementario = require('./../models/complementario');
+var Complementario = require('./../models/mComplementario');
 module.exports = {
   save: function(req, res, upload, done) {
     upload(req, res, function(err) {
@@ -44,18 +44,6 @@ module.exports = {
       res.json(complementarios);
     });
   },
-  findPublic: function(req, res) {
-    Complementario.find(function(err, complementarios) {
-      if (err)
-        res.send(err);
-      res.json(complementarios);
-    });
-  },
-  list: function(done) {
-    Complementario.find(function(err, complementarios) {
-      done(err, complementarios);
-    });
-  },
   delete: function(req, res) {
     console.log(req.params.id);
     Complementario.remove({
@@ -67,5 +55,29 @@ module.exports = {
         message: 'Successfully deleted'
       });
     });
-  }
+  },
+
+  //API
+  listAll: function(req, res) {
+    Complementario.find(function(err, complementarios) {
+      if (err)
+        res.send(err);
+      res.json(complementarios);
+    });
+  },
+  listOne: function(req, res) {
+    Complementario.find({
+      _id: req.params.id
+    }, function(err, complementarios) {
+      if (err)
+        res.send(err);
+      res.json(complementarios);
+    });
+  },
+  list: function(done) {
+    Complementario.find(function(err, complementarios) {
+      done(err, complementarios);
+    });
+  },
+
 };

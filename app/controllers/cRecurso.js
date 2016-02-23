@@ -1,4 +1,4 @@
-var Recurso = require('./../models/recurso');
+var Recurso = require('./../models/mRecurso');
 module.exports = {
   save: function(req, res, upload, done) {
     upload(req, res, function(err) {
@@ -42,21 +42,13 @@ module.exports = {
   findAll: function(req, res) {
     Recurso.find({
       owner: req.user.local.email
-    }, function(err, recursoes) {
+    }, function(err, recursos) {
       if (err)
         res.send(err);
-      //console.log(recursoes);
-      res.json(recursoes);
-    });
-  },
-  findPublic: function(req, res) {
-    Recurso.find(function(err, recursoes) {
-      if (err)
-        res.send(err);
-      res.json(recursoes);
-    });
-  },
 
+      res.json(recursos);
+    });
+  },
   delete: function(req, res) {
     console.log(req.params.id);
     Recurso.remove({
@@ -67,6 +59,24 @@ module.exports = {
       res.json({
         message: 'Successfully deleted'
       });
+    });
+  },
+
+  //API
+  listAll: function(req, res) {
+    Recurso.find(function(err, recursos) {
+      if (err)
+        res.send(err);
+      res.json(recursos);
+    });
+  },
+  listOne: function(req, res) {
+    Recurso.find({
+      _id: req.params.id
+    }, function(err, recursos) {
+      if (err)
+        res.send(err);
+      res.json(recursos);
     });
   }
 };

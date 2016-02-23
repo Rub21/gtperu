@@ -1,14 +1,11 @@
-var controllerHotel = require('./app/controllers/hotel');
-var controllerRestaurant = require('./app/controllers/restaurant');
-var controllerTransporte = require('./app/controllers/transporte');
-var controllerRecurso = require('./app/controllers/recurso');
-var controllerComplementario = require('./app/controllers/complementario');
+var controllerHotel = require('./app/controllers/cHotel');
+var controllerRestaurant = require('./app/controllers/cRestaurant');
+var controllerTransporte = require('./app/controllers/cTransporte');
+var controllerRecurso = require('./app/controllers/cRecurso');
+var controllerComplementario = require('./app/controllers/cComplementario');
 
-module.exports = function(app, passport, upload) {
-  //Main
-  app.get('/', function(req, res) {
-    res.render('pages/index.ejs');
-  });
+module.exports = function(app) {
+
   app.get('/api/hoteles', function(req, res) {
     controllerHotel.findPublic(req, res);
   });
@@ -18,17 +15,23 @@ module.exports = function(app, passport, upload) {
   app.get('/api/transportes', function(req, res) {
     controllerTransporte.findPublic(req, res);
   });
+
   app.get('/api/complementarios', function(req, res) {
     controllerComplementario.findPublic(req, res);
   });
+
+  //RECURSO
   app.get('/api/recursos', function(req, res) {
-    controllerRecurso.findPublic(req, res);
+    controllerRecurso.listAll(req, res);
   });
+  app.get('/api/recursos/:id', function(req, res) {
+    controllerRecurso.listOne(req, res);
+  });
+
   //SERVICIO
   app.get('/api/servicios', function(req, res) {
     var arr = [];
     controllerHotel.list(function(err, arr1) {
-      console.log(arr1);
       arr = arr.concat(arr1);
       controllerRestaurant.list(function(err, arr2) {
         arr = arr.concat(arr2);

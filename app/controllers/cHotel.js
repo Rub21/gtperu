@@ -1,4 +1,4 @@
-var Hotel = require('./../models/hotel');
+var Hotel = require('./../models/mHotel');
 module.exports = {
   save: function(req, res, upload, done) {
     upload(req, res, function(err) {
@@ -47,18 +47,6 @@ module.exports = {
       res.json(hoteles);
     });
   },
-  findPublic: function(req, res) {
-    Hotel.find(function(err, hoteles) {
-      if (err)
-        res.send(err);
-      res.json(hoteles);
-    });
-  },
-  list: function(done) {
-    Hotel.find(function(err, hoteles) {
-      done(err, hoteles);
-    });
-  },
   delete: function(req, res) {
     console.log(req.params.id);
     Hotel.remove({
@@ -70,5 +58,29 @@ module.exports = {
         message: 'Successfully deleted'
       });
     });
+  },
+
+  //API
+  listAll: function(req, res) {
+    Hotel.find(function(err, hoteles) {
+      if (err)
+        res.send(err);
+      res.json(hoteles);
+    });
+  },
+  listOne: function(req, res) {
+    Hotel.find({
+      _id: req.params.id
+    }, function(err, hoteles) {
+      if (err)
+        res.send(err);
+      res.json(hoteles);
+    });
+  },
+  list: function(done) {
+    Hotel.find(function(err, hoteles) {
+      done(err, hoteles);
+    });
   }
+
 };
