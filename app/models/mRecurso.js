@@ -20,6 +20,7 @@ var RecursoShema = new Schema({
   }],
   //llenar en el momento de registar
   estado: Boolean,
-  owner: String
+  owner: String,
+  clase: String
 });
 module.exports = mongoose.model('Recurso', RecursoShema);

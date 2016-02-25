@@ -31,6 +31,7 @@ module.exports = {
       //Lllenar en aqui
       recurso.estado = true;
       recurso.owner = req.user.local.email;
+      recurso.clase='recurso';
 
       recurso.save(function(err) {
         if (err)

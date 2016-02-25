@@ -124,10 +124,18 @@ $(function() {
       return mark;
     });
 
-    m.addLayer(point);
 
-    // Here put the coordinates in field Latitud dan Longitud
+    console.log(point);
+    // var lat = document.getElementById('latitud');
+    // lat.innerHTML = l.lat.toFixed(5);
+
+    // var lon = document.getElementById('longitud');
+    // lon.innerHTML = l.lon.toFixed(5);
+
+    //Here put the coordinates in field Latitud dan Longitud
     $('#latitud').attr('value', l.lat.toFixed(5));
     $('#longitud').attr('value', l.lon.toFixed(5));
+    m.addLayer(point);
+
   }
 });
