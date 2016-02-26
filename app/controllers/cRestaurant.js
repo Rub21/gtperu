@@ -1,4 +1,4 @@
-var Restaurant = require('./../models/restaurant');
+var Restaurant = require('./../models/mRestaurant');
 module.exports = {
   save: function(req, res, upload, done) {
     upload(req, res, function(err) {
@@ -8,22 +8,20 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var restaurant = new Restaurant();
-      restaurant.idrestaurant = 'hhh';
+      restaurant.nombre = data.nombre;
       restaurant.categoria = data.categoria;
       restaurant.tipo = data.tipo;
       restaurant.descripcion = data.descripcion;
       restaurant.direccion = data.direccion;
       restaurant.telefono = data.telefono;
       restaurant.sitio_web = data.sitio_web;
-      restaurant.horario_de_atencion = data.horario_de_atencion;
+      restaurant.horario_atencion = data.horario_atencion;
       restaurant.especialidad = data.especialidad;
       restaurant.precio_promedio = data.precio_promedio;
       restaurant.formas_pago = data.formas_pago;
-      restaurant.latitud = parseFloat(data.lat);
-      restaurant.longitud = parseFloat(data.lon);
-      restaurant.idproducto = 'uuid';
-      restaurant.nombre = data.nombre;
-      restaurant.clase = "Restaurant";
+      restaurant.latitud = parseFloat(data.latitud);
+      restaurant.longitud = parseFloat(data.longitud);
+      restaurant.clase = 'restaurant';
       restaurant.estado = true;
       //owner
       restaurant.owner = req.user.local.email;
@@ -56,11 +54,6 @@ module.exports = {
       res.json(restaurantes);
     });
   },
-  list: function(done) {
-    Restaurant.find(function(err, restaurantes) {
-      done(err, restaurantes);
-    });
-  },
   delete: function(req, res) {
     console.log(req.params.id);
     Restaurant.remove({
@@ -71,6 +64,28 @@ module.exports = {
       res.json({
         message: 'Successfully deleted'
       });
+    });
+  },
+  //API
+  listAll: function(req, res) {
+    Restaurant.find(function(err, restaurantes) {
+      if (err)
+        res.send(err);
+      res.json(restaurantes);
+    });
+  },
+  listOne: function(req, res) {
+    Restaurant.find({
+      _id: req.params.id
+    }, function(err, restaurantes) {
+      if (err)
+        res.send(err);
+      res.json(restaurantes);
+    });
+  },
+  list: function(done) {
+    Restaurant.find(function(err, restaurantes) {
+      done(err, restaurantes);
     });
   }
 };

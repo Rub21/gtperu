@@ -1,14 +1,15 @@
-var controllerHotel = require('./app/controllers/hotel');
-var controllerRestaurant = require('./app/controllers/restaurant');
-var controllerTransporte = require('./app/controllers/transporte');
-var controllerRecurso = require('./app/controllers/recurso');
-var controllerComplementario = require('./app/controllers/complementario');
+var controllerHotel = require('./app/controllers/cHotel');
+var controllerRestaurant = require('./app/controllers/cRestaurant');
+var controllerTransporte = require('./app/controllers/cTransporte');
+var controllerRecurso = require('./app/controllers/cRecurso');
+var controllerComplementario = require('./app/controllers/cComplementario');
 
 module.exports = function(app, passport, upload) {
   //Main
   app.get('/', function(req, res) {
     res.render('pages/index.ejs');
   });
+  
   //login
   app.get('/login', function(req, res) {
     res.render('pages/login.ejs', {

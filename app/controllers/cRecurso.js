@@ -1,4 +1,4 @@
-var Recurso = require('./../models/recurso');
+var Recurso = require('./../models/mRecurso');
 module.exports = {
   save: function(req, res, upload, done) {
     upload(req, res, function(err) {
@@ -8,37 +8,31 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var recurso = new Recurso();
+      recurso.idproducto = 'xxx';
       recurso.idrecurso = 'uuid';
+      recurso.nombre = data.nombre;
       recurso.categoria = data.categoria;
       recurso.tipo = data.tipo;
       recurso.descripcion = data.descripcion;
-      recurso.historia = data.historia;
-      recurso.corredor = data.corredor;
-      recurso.distancia = data.distancia;
-      recurso.tipo_precio_ing = data.costo_de_ingreso;
-      recurso.horario_atencion = data.horario_de_atencion;
+      recurso.costo_ingreso = data.costo_ingreso;
+      recurso.horario_atencion = data.horario_atencion;
       recurso.temperatura = data.temperatura;
       recurso.altitud = data.altitud;
       recurso.video = data.video;
       recurso.como_llegar = data.como_llegar;
-      recurso.transporte = [{
-        idtransporte: 'String'
-      }];
-      recurso.latitud = parseFloat(data.lat);
-      recurso.longitud = parseFloat(data.lon);
-
-      recurso.idproducto = 'uuid';
-      recurso.nombre = data.nombre;
-      recurso.clase = 'Clase';
-      recurso.estado = true;
-      //owner
-      recurso.owner = req.user.local.email;
+      recurso.latitud = parseFloat(data.latitud);
+      recurso.longitud = parseFloat(data.longitud);
       recurso.imagenes = [];
       for (var i = 0; i < files.length; i++) {
         recurso.imagenes.push({
           url: files[i].filename
         });
       }
+      //Lllenar en aqui
+      recurso.estado = true;
+      recurso.owner = req.user.local.email;
+      recurso.clase='recurso';
+
       recurso.save(function(err) {
         if (err)
           res.send(err);
@@ -49,21 +43,13 @@ module.exports = {
   findAll: function(req, res) {
     Recurso.find({
       owner: req.user.local.email
-    }, function(err, recursoes) {
+    }, function(err, recursos) {
       if (err)
         res.send(err);
-      //console.log(recursoes);
-      res.json(recursoes);
-    });
-  },
-  findPublic: function(req, res) {
-    Recurso.find(function(err, recursoes) {
-      if (err)
-        res.send(err);
-      res.json(recursoes);
-    });
-  },
 
+      res.json(recursos);
+    });
+  },
   delete: function(req, res) {
     console.log(req.params.id);
     Recurso.remove({
@@ -74,6 +60,24 @@ module.exports = {
       res.json({
         message: 'Successfully deleted'
       });
+    });
+  },
+
+  //API
+  listAll: function(req, res) {
+    Recurso.find(function(err, recursos) {
+      if (err)
+        res.send(err);
+      res.json(recursos);
+    });
+  },
+  listOne: function(req, res) {
+    Recurso.find({
+      _id: req.params.id
+    }, function(err, recursos) {
+      if (err)
+        res.send(err);
+      res.json(recursos);
     });
   }
 };

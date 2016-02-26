@@ -1,3 +1,3 @@
 module.exports = {
-  'url': 'mongodb://localhost/geoturb'
+  'url': 'mongodb://localhost/geoturb2'
 };

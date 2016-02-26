@@ -53,7 +53,7 @@ var upload = multer({
   storage: storage
 }).any();
 
-routesApi(app, passport, upload);
+routesApi(app);
 routesAdmin(app, passport, upload);
 app.listen(port);
 console.log('Running on port ' + port);

@@ -1,0 +1,32 @@
+  <h4>Localización</h4>
+  <!-- latitude -->
+  <div class="form-group row">
+    <label for="latitud" class="col-sm-2 form-control-label">latitud</label>
+    <div class="col-sm-10">
+      <input   name="latitud" type="text" class="form-control number" id="latitud"  placeholder='click en el Mapa' readonly>
+    </div>
+  </div>
+  <!-- longitud -->
+  <div class="form-group row">
+    <label for="longitud" class="col-sm-2 form-control-label">Longitud</label>
+    <div class="col-sm-10">
+      <input   name="longitud" type="text" class="form-control numbre" id="longitud"  placeholder='click en el Mapa' readonly>
+    </div>
+  </div>
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+        Selecionar el punto en el mapa
+      </a><i class="indicator glyphicon glyphicon-chevron-down  pull-right"></i>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div id='map'></div>
+      <div class='left'>
+        <a id='geojsonLayer' href='#'></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,31 +1,26 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var RecursoShema = new Schema({
+  idproducto: String,
   idrecurso: String,
+  nombre: String,
   categoria: String,
   tipo: String,
   descripcion: String,
-  historia: String,
-  corredor: String,
-  distancia: String,
-  tipo_precio_ing: String,
+  costo_ingreso: String,
   horario_atencion: String,
   temperatura: String,
   altitud: String,
   video: String,
   como_llegar: String,
-  transporte: [{
-    idtransporte: String
-  }],
   latitud: Number,
   longitud: Number,
-  imagenes:[{
+  imagenes: [{
     url: String
   }],
-  idproducto: String,
-  nombre: String,
-  clase: String,
+  //llenar en el momento de registar
   estado: Boolean,
-  owner: String
+  owner: String,
+  clase: String
 });
 module.exports = mongoose.model('Recurso', RecursoShema);

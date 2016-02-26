@@ -1,4 +1,4 @@
-var Transporte = require('./../models/transporte');
+var Transporte = require('./../models/mTransporte');
 module.exports = {
   save: function(req, res, upload, done) {
     upload(req, res, function(err) {
@@ -54,11 +54,6 @@ module.exports = {
       res.json(transportes);
     });
   },
-  list: function(done) {
-    Transporte.find(function(err, transportes) {
-      done(err, transportes);
-    });
-  },
   delete: function(req, res) {
     Transporte.remove({
       _id: req.params.id
@@ -68,6 +63,29 @@ module.exports = {
       res.json({
         message: 'Successfully deleted'
       });
+    });
+  },
+  
+  //API
+  listAll: function(req, res) {
+    Transporte.find(function(err, transportes) {
+      if (err)
+        res.send(err);
+      res.json(transportes);
+    });
+  },
+  listOne: function(req, res) {
+    Transporte.find({
+      _id: req.params.id
+    }, function(err, transportes) {
+      if (err)
+        res.send(err);
+      res.json(transportes);
+    });
+  },
+  list: function(done) {
+    Transporte.find(function(err, transportes) {
+      done(err, transportes);
     });
   }
 };

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var RestaurantSchema = new Schema({
-  idrestaurant: String,
+  nombre: String,
   categoria: String,
   tipo: String,
   descripcion: String,
@@ -17,10 +17,8 @@ var RestaurantSchema = new Schema({
   imagenes: [{
     url: String
   }],
-  idproducto: String,
-  nombre: String,
-  clase: String,
   estado: Boolean,
-  owner: String
+  owner: String,
+  clase: String
 });
 module.exports = mongoose.model('Restaurant', RestaurantSchema);
