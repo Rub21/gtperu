@@ -7,17 +7,21 @@ var controllerComplementario = require('./app/controllers/cComplementario');
 module.exports = function(app) {
 
   app.get('/api/hoteles', function(req, res) {
-    controllerHotel.findPublic(req, res);
+    controllerHotel.listAll(req, res);
   });
   app.get('/api/restaurants', function(req, res) {
-    controllerRestaurant.findPublic(req, res);
+    controllerRestaurant.listAll(req, res);
   });
+  app.get('/api/restaurants/:id', function(req, res) {
+    controllerRestaurant.listOne(req, res);
+  });
+
   app.get('/api/transportes', function(req, res) {
-    controllerTransporte.findPublic(req, res);
+    controllerTransporte.listAll(req, res);
   });
 
   app.get('/api/complementarios', function(req, res) {
-    controllerComplementario.findPublic(req, res);
+    controllerComplementario.listAll(req, res);
   });
 
   //RECURSO
