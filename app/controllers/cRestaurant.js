@@ -47,13 +47,6 @@ module.exports = {
       res.json(restaurantes);
     });
   },
-  findPublic: function(req, res) {
-    Restaurant.find(function(err, restaurantes) {
-      if (err)
-        res.send(err);
-      res.json(restaurantes);
-    });
-  },
   delete: function(req, res) {
     console.log(req.params.id);
     Restaurant.remove({

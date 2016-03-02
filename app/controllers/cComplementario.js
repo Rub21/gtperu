@@ -8,19 +8,19 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var complementario = new Complementario();
-      complementario.idcomplementario = 'hhh';
-      complementario.clase = "Complementario";
-      complementario.estado = true;
-      complementario.tipo = data.tipo;
+      
       complementario.nombre = data.nombre;
+      complementario.tipo = data.tipo;
       complementario.descripcion = data.descripcion;
       complementario.direccion = data.direccion;
       complementario.telefono = data.telefono;
       complementario.sitio_web = data.sitio_web;
       complementario.horario_atencion = data.horario_atencion;
-      complementario.latitud = parseFloat(data.lat);
-      complementario.longitud = parseFloat(data.lon);
+      complementario.latitud = parseFloat(data.latitud);
+      complementario.longitud = parseFloat(data.latitud);
       //owner
+      complementario.clase = "Complementario";
+      complementario.estado = true;
       complementario.owner = req.user.local.email;
       complementario.imagenes = [];
       for (var i = 0; i < files.length; i++) {

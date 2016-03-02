@@ -1,0 +1,79 @@
+   <form  class = "well" name="form" id="form-h" enctype= "multipart/form-data"  action="/transportes"  method="post">
+    
+    <div class="form-group row">
+      <label for="nombre" class="col-sm-2 form-control-label">Nombre</label>
+      <div class="col-sm-10">
+        <input   name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+      </div>
+    </div>
+   
+    <!-- descripcion -->
+    <div class="form-group row">
+      <label for="descripcion" class="col-sm-2 form-control-label">Descripción</label>
+      <div class="col-sm-10">
+        <textarea  name="descripcion" rows='5' cols='75' class="form-control" id="descripcion" placeholder="Descripción"></textarea>
+      </div>
+    </div>
+      <!-- tipo-->
+      <div class="form-group row">
+        <label for="tipo" class="col-sm-2 form-control-label" >Tipo de transporte</label>
+        <div class="col-sm-10">
+          <select name="tipo" class="form-control" id="tipo">
+           <option value=' Interdepartamental'> Interdepartamental</option>
+           <option value='Interprovincial'>Interprovincial</option>
+           <option value=' Interdistrital'> Interdistrital</option>
+         </select>
+       </div>
+     </div>
+
+    <!-- direccion-->
+    <div class="form-group row">
+      <label for="direccion" class="col-sm-2 form-control-label">Direccion</label>
+      <div class="col-sm-10">
+        <input   name="direccion" type="text" class="form-control" id="direccion" placeholder="Direccion">
+      </div>
+    </div>
+    <!-- telefono-->
+    <div class="form-group row">
+      <label for="telefono" class="col-sm-2 form-control-label">Teléfono</label>
+      <div class="col-sm-10">
+        <input   name="telefono" type="text" class="form-control" id="telefono" placeholder="required">
+      </div>
+    </div>
+    <!-- Sitio web-->
+    <div class="form-group row">
+      <label for="sitio_web" class="col-sm-2 form-control-label">Sitio web</label>
+      <div class="col-sm-10">
+        <input   name="sitio_web" type="text" class="form-control" id="sitio_web" placeholder="">
+      </div>
+    </div>
+     <!-- horario de atencion-->
+    <div class="form-group row">
+      <label for="horario_atencion" class="col-sm-2 form-control-label">Horario de atención</label>
+      <div class="col-sm-10">
+        <input   name="horario_atencion" type="text" class="form-control" id="horario_atencion" placeholder="">
+      </div>
+    </div>
+    
+      <!-- horario de  salidad-->
+    <div class="form-group row">
+      <label for="horario_salida" class="col-sm-2 form-control-label">Horario de salidad</label>
+      <div class="col-sm-10">
+        <input   name="horario_salida" type="text" class="form-control" id="horario_salida" placeholder="">
+      </div>
+    </div>
+
+    <!-- destinos -->
+    <div class="form-group row">
+      <label for="destinos" class="col-sm-2 form-control-label">Destinos</label>
+      <div class="col-sm-10">
+        <textarea  name="destinos" rows='5' cols='75' class="form-control" id="destinos" placeholder="Destinos"></textarea>
+      </div>
+    </div>
+    
+    <% include map %>
+    <% include addImages %>
+    <button type="submit" class="btn btn-primary" id="button">Registrar</button>
+    <a class="btn" id="clear" href="/index">Cancelar</a>
+    
+  </form> 

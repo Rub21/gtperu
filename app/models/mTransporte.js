@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var TransporteSchema = new Schema({
-  idtransporte: String,
+  nombre: String,
   descripcion: String,
   tipo: String,
-  clase: String,
   direccion: String,
   telefono: String,
   sitio_web: String,
@@ -16,8 +15,7 @@ var TransporteSchema = new Schema({
   imagenes: [{
     url: String
   }],
-  idproducto: String,
-  nombre: String,
+  clase: String,
   estado: Boolean,
   owner: String
 });
