@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+    <div class="container">
+      <h2>Registrar Complementarios</h2>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-4">
+          <% include ../partials/tabla %>
+        </div>
+        <div class="col-xs-8">
+          <% include ../partials/formComplementario %>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!--Scripts-->
+  <% include ../partials/script %>
+  <script src='js/form_validate.js' ></script>
+  <script src='js/tablas.js' ></script>
+  <script>
+  loadData('complementarios');
+  </script>
+</html>

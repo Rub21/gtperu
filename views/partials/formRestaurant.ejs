@@ -1,0 +1,95 @@
+<form class = "well" name="form" id="form" method="post"  action="/restaurants" enctype="multipart/form-data" >
+  <!-- nombre -->
+  <div class="form-group row">
+    <label for="nombre" class="col-sm-2 form-control-label">Nombre</label>
+    <div class="col-sm-10">
+      <input   name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+    </div>
+  </div>
+  <!-- categoria -->
+  <div class="form-group row">
+    <label for="categoria" class="col-sm-2 form-control-label" >Example </label>
+    <div class="col-sm-10">
+      <select name ="categoria"class="form-control " id="categoria">
+        <option value='Sin Categoria'>Sin Categoria</option>
+        <option value='1 Tenedor'>1 Tenedor</option>
+        <option value='2 Tenedores'>2 Tenedores</option>
+        <option value='3 Tenedores'>3 Tenedores</option>
+        <option value='4 Tenedores'>4 Tenedores</option>
+      </select>
+    </div>
+  </div>
+  <!-- Tipo -->
+  <div class="form-group row">
+    <label for="tipo" class="col-sm-2 form-control-label" >Tipo</label>
+    <div class="col-sm-10">
+      <select name="tipo" class="form-control" id="tipo">
+        <option value='Comida típica  y nacional'>Comida típica  y nacional</option>
+        <option value='Comida cacera'>Comida cacera</option>
+        <option value='Pollos a la brasa y parrillas'>Pollos a la brasa y parrillas</option>
+        <option value='Pizas y pastas'>Pizas y pastas</option>
+        <option value='Comida vegetariana'>Comida vegetariana</option>
+        <option value='Desayuno y lonches'>Desayuno y lonches</option>
+      </select>
+    </div>
+  </div>
+  <!-- descripcion -->
+  <div class="form-group row">
+    <label for="descripcion" class="col-sm-2 form-control-label">Descripción</label>
+    <div class="col-sm-10">
+      <textarea  name="descripcion" rows='5' cols='75' class="form-control" id="descripcion" placeholder="Descripción"></textarea>
+    </div>
+  </div>
+  <!-- Direción -->
+  <div class="form-group row">
+    <label for="direccion" class="col-sm-2 form-control-label">Direción</label>
+    <div class="col-sm-10">
+      <input   name="direccion" type="text" class="form-control" id="direccion" placeholder="Direción">
+    </div>
+  </div>
+  <!-- Telefono -->
+  <div class="form-group row">
+    <label for="telefono" class="col-sm-2 form-control-label">Telefono</label>
+    <div class="col-sm-10">
+      <input   name="telefono" type="text" class="form-control" id="telefono" placeholder="Telefono">
+    </div>
+  </div>
+  <!-- Sitio Web -->
+  <div class="form-group row">
+    <label for="sitio_web" class="col-sm-2 form-control-label">Sitio Web</label>
+    <div class="col-sm-10">
+      <input   name="sitio_web" type="text" class="form-control" id="sitio_web" placeholder="Sitio Web">
+    </div>
+  </div>
+  <!-- Horario de atención -->
+  <div class="form-group row">
+    <label for="horario_atencion" class="col-sm-2 form-control-label">Horario de atención</label>
+    <div class="col-sm-10">
+      <input   name="horario_atencion" type="text" class="form-control" id="horario_atencion" placeholder="Horario de atención">
+    </div>
+  </div>
+  <!-- Especialidades -->
+  <div class="form-group row">
+    <label for="especialidad" class="col-sm-2 form-control-label">Especialidades</label>
+    <div class="col-sm-10">
+      <input   name="especialidad" type="text" class="form-control" id="especialidad" placeholder="Especialidades">
+    </div>
+  </div>
+  <!-- Precio promedio -->
+  <div class="form-group row">
+    <label for="precio_promedio" class="col-sm-2 form-control-label">Precio promedio</label>
+    <div class="col-sm-10">
+      <input   name="precio_promedio" type="text" class="form-control" id="precio_promedio" placeholder="Precio promedio">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="formas_pago" class="col-sm-2 form-control-label">Formas de pago</label>
+    <div class="col-sm-10">
+      <input   name="formas_pago" type="text" class="form-control" id="formas_pago" placeholder="Formas de pago">
+    </div>
+  </div>
+  <% include map %>
+  <% include addImages %>
+  <button type="submit" class="btn btn-primary" id="button">Registrar</button>
+  <a class="btn" id="clear" href="/index">Cancelar</a>
+</form>

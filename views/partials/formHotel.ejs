@@ -1,0 +1,78 @@
+   <form  class = "well" name="form" id="form-h" enctype= "multipart/form-data"  action="/hoteles"  method="post">
+   	
+   	<div class="form-group row">
+   		<label for="nombre" class="col-sm-2 form-control-label">Nombre</label>
+   		<div class="col-sm-10">
+   			<input   name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+   		</div>
+   	</div>
+     <!-- categoria -->
+     <div class="form-group row">
+       <label for="categoria" class="col-sm-2 form-control-label" >Categoria</label>
+       <div class="col-sm-10">
+        <select name ="categoria"class="form-control " id="categoria">
+          <option value='Sin Categoria'>Sin Categoria</option>
+          <option value='1 Estrella'>1 Estrella</option>
+          <option value='2 Estrellas'>2 Estrellas</option>
+          <option value='3 Estrellas'>3 Estrellas</option>
+          <option value='4 Estrellas'>4 Estrellas</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- descripcion -->
+    <div class="form-group row">
+      <label for="descripcion" class="col-sm-2 form-control-label">Descripción</label>
+      <div class="col-sm-10">
+        <textarea  name="descripcion" rows='5' cols='75' class="form-control" id="descripcion" placeholder="Descripción"></textarea>
+      </div>
+    </div>
+
+    <!-- direccion-->
+    <div class="form-group row">
+      <label for="direccion" class="col-sm-2 form-control-label">Direccion</label>
+      <div class="col-sm-10">
+        <input   name="direccion" type="text" class="form-control" id="direccion" placeholder="Direccion">
+      </div>
+    </div>
+    <!-- telefono-->
+    <div class="form-group row">
+      <label for="telefono" class="col-sm-2 form-control-label">Teléfono</label>
+      <div class="col-sm-10">
+        <input   name="telefono" type="text" class="form-control" id="telefono" placeholder="required">
+      </div>
+    </div>
+    <!-- telefono-->
+    <div class="form-group row">
+      <label for="video" class="col-sm-2 form-control-label">Sitio web</label>
+      <div class="col-sm-10">
+        <input   name="sitio_web" type="text" class="form-control" id="sitio_web" placeholder="">
+      </div>
+    </div>
+    <!-- correo electronico-->
+    <div class="form-group row">
+      <label for="correo_electronico" class="col-sm-2 form-control-label">Correo electrónico</label>
+      <div class="col-sm-10">
+        <input   name="correo_electronico" type="text" class="form-control" id="correo_electronico" placeholder="">
+      </div>
+    </div>
+    <!-- precio de la habitación-->
+    <div class="form-group row">
+      <label for="precio_habitacion" class="col-sm-2 form-control-label">Precio de la habitación</label>
+      <div class="col-sm-10">
+        <input   name="precio_de_habitacion" type="text" class="form-control" id="precio_habitacion" placeholder="">
+      </div>
+    </div>
+    <!-- Formas de pago-->
+    <div class="form-group row">
+      <label for="formas_pago" class="col-sm-2 form-control-label">Formas de pago</label>
+      <div class="col-sm-10">
+        <input   name="formas_pago" type="text" class="form-control" id="formas_pago" placeholder="">
+      </div>
+    </div>
+    <% include map %>
+    <% include addImages %>
+    <button type="submit" class="btn btn-primary" id="button">Registrar</button>
+    <a class="btn" id="clear" href="/index">Cancelar</a>
+    
+  </form> 
