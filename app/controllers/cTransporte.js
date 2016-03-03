@@ -8,7 +8,7 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var transporte = new Transporte();
-      transporte.idtransporte = 'rr';
+      transporte.nombre = data.nombre;
       transporte.descripcion = data.descripcion;
       transporte.tipo = data.tipo;
       transporte.direccion = data.direccion;
@@ -17,55 +17,53 @@ module.exports = {
       transporte.horario_atencion = data.horario_de_atencion;
       transporte.horario_salida = data.horario_de_salida;
       transporte.destinos = data.destinos;
-      transporte.latitud = parseFloat(data.lat);
-      transporte.longitud = parseFloat(data.lon);
-      transporte.idproducto = 'uuid';
-      transporte.clase = 'Transporte';
-      transporte.nombre = data.nombre;
-      transporte.estado = true;
-      //owner
-      transporte.owner = req.user.local.email;
-      transporte.imagenes = [];
-      for (var i = 0; i < files.length; i++) {
-        transporte.imagenes.push({
-          url: files[i].filename
-        });
-      }
-      transporte.save(function(err) {
-        if (err)
-          res.send(err);
-        done(true);
-      });
+      transporte.latitud = parseFloat(data.latitud);
+      transporte.longitud = parseFloat(data.longitud);
+   //owner
+   transporte.clase = 'hotel';
+   transporte.estado = true;
+   transporte.owner = req.user.local.email;
+   transporte.imagenes = [];
+   for (var i = 0; i < files.length; i++) {
+    transporte.imagenes.push({
+      url: files[i].filename
     });
-  },
-  findAll: function(req, res) {
-    Transporte.find({
-      owner: req.user.local.email
-    }, function(err, transportes) {
-      if (err)
-        res.send(err);
-      res.json(transportes);
+  }
+  transporte.save(function(err) {
+    if (err)
+      res.send(err);
+    done(true);
+  });
+});
+},
+findAll: function(req, res) {
+  Transporte.find({
+    owner: req.user.local.email
+  }, function(err, transportes) {
+    if (err)
+      res.send(err);
+    res.json(transportes);
+  });
+},
+findPublic: function(req, res) {
+  Transporte.find(function(err, transportes) {
+    if (err)
+      res.send(err);
+    res.json(transportes);
+  });
+},
+delete: function(req, res) {
+  Transporte.remove({
+    _id: req.params.id
+  }, function(err, bear) {
+    if (err)
+      res.send(err);
+    res.json({
+      message: 'Successfully deleted'
     });
-  },
-  findPublic: function(req, res) {
-    Transporte.find(function(err, transportes) {
-      if (err)
-        res.send(err);
-      res.json(transportes);
-    });
-  },
-  delete: function(req, res) {
-    Transporte.remove({
-      _id: req.params.id
-    }, function(err, bear) {
-      if (err)
-        res.send(err);
-      res.json({
-        message: 'Successfully deleted'
-      });
-    });
-  },
-  
+  });
+},
+
   //API
   listAll: function(req, res) {
     Transporte.find(function(err, transportes) {

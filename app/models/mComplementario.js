@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var ComplementarioSchema = new Schema({
-  idcomplementario: String,
+  nombre: String,
   tipo: String,
   descripcion: String,
   direccion: String,
@@ -13,8 +13,7 @@ var ComplementarioSchema = new Schema({
   imagenes: [{
     url: String
   }],
-  idproducto: String,
-  nombre: String,
+   
   clase: String,
   estado: Boolean,
   owner: String

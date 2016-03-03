@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var HotelSchema = new Schema({
-  idhotel: String,
+  nombre: String,
   categoria: String,
   descripcion: String,
   direccion: String,
   telefono: String,
   sitio_web: String,
-  correo_elec: String,
+  correo_electronico: String,
   tipo_precio_hab: String,
   formas_pago: String,
   latitud: Number,
@@ -15,8 +15,6 @@ var HotelSchema = new Schema({
   imagenes: [{
     url: String
   }],
-  idproducto: String,
-  nombre: String,
   clase: String,
   estado: Boolean,
   owner: String

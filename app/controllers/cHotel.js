@@ -8,21 +8,21 @@ module.exports = {
       var data = req.body;
       var files = req.files;
       var hotel = new Hotel();
-      hotel.idhotel = 'hhh';
-      hotel.clase = "Hotel";
-      hotel.estado = true;
-      hotel.categoria = data.categoria;
+
       hotel.nombre = data.nombre;
+      hotel.categoria = data.categoria;
       hotel.descripcion = data.descripcion;
       hotel.direccion = data.direccion;
       hotel.telefono = data.telefono;
       hotel.sitio_web = data.sitio_web;
-      hotel.correo_elec = data.correo_electronico;
-      hotel.tipo_precio_hab = data.precio_de_habitacion;
-      hotel.formas_pago = data.formas_de_pago;
-      hotel.latitud = parseFloat(data.lat);
-      hotel.longitud = parseFloat(data.lon);
+      hotel.correo_electronico = data.correo_electronico;
+      hotel.precio_habitacion = data.precio_habitacion;
+      hotel.formas_pago = data.formas_pago;
+      hotel.latitud = parseFloat(data.latitud);
+      hotel.longitud = parseFloat(data.longitud);
       //owner
+      hotel.clase = 'hotel';
+      hotel.estado = true;
       hotel.owner = req.user.local.email;
       hotel.imagenes = [];
       for (var i = 0; i < files.length; i++) {
@@ -37,6 +37,7 @@ module.exports = {
         done(true);
       });
     });
+
   },
   findAll: function(req, res) {
     Hotel.find({

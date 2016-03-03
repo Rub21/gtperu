@@ -1,0 +1,73 @@
+   <form  class = "well" name="form" id="form-h" enctype= "multipart/form-data"  action="/complementarios"  method="post">
+    
+    <div class="form-group row">
+      <label for="nombre" class="col-sm-2 form-control-label">Nombre</label>
+      <div class="col-sm-10">
+        <input   name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+      </div>
+    </div>
+    <!-- tipo-->
+    <div class="form-group row">
+      <label for="tipo" class="col-sm-2 form-control-label" >Tipo de servicio</label>
+      <div class="col-sm-10">
+        <select name="tipo" class="form-control" id="tipo">
+         <option value='Puntos de información al turista'> Puntos de información al turista</option>
+         <option value='Agencias de turismo'> Agencias de turismo</option>
+         <option value='Comercio de artesanías'>Comercio de artesanías </option>
+         <option value='Bar'>Bar</option>
+         <option value='Farmacia'>Farmacia</option>
+         <option value='Banco'>Banco</option>
+         <option value='Galeria de Arte'>Galeria de Arte</option>
+         <option value='Policia'>Policia</option>
+         <option value='Servicio de Salud'>Servicios de Salud</option>
+         <option value='Cabinas de Internet'>Cabinas de Internet</option>
+         <option value='Otros Servicios'>Otros Servicios</option>
+       </select>
+     </div>
+   </div>
+   
+   <!-- descripcion -->
+   <div class="form-group row">
+    <label for="descripcion" class="col-sm-2 form-control-label">Descripción</label>
+    <div class="col-sm-10">
+      <textarea  name="descripcion" rows='5' cols='75' class="form-control" id="descripcion" placeholder="Descripción"></textarea>
+    </div>
+  </div>
+  
+
+  <!-- direccion-->
+  <div class="form-group row">
+    <label for="direccion" class="col-sm-2 form-control-label">Direccion</label>
+    <div class="col-sm-10">
+      <input   name="direccion" type="text" class="form-control" id="direccion" placeholder="Direccion">
+    </div>
+  </div>
+  <!-- telefono-->
+  <div class="form-group row">
+    <label for="telefono" class="col-sm-2 form-control-label">Teléfono</label>
+    <div class="col-sm-10">
+      <input   name="telefono" type="text" class="form-control" id="telefono" placeholder="required">
+    </div>
+  </div>
+  <!-- Sitio web-->
+  <div class="form-group row">
+    <label for="sitio_web" class="col-sm-2 form-control-label">Sitio web</label>
+    <div class="col-sm-10">
+      <input   name="sitio_web" type="text" class="form-control" id="sitio_web" placeholder="">
+    </div>
+  </div>
+  <!-- horario de atencion-->
+  <div class="form-group row">
+    <label for="horario_atencion" class="col-sm-2 form-control-label">Horario de atención</label>
+    <div class="col-sm-10">
+      <input   name="horario_atencion" type="text" class="form-control" id="horario_atencion" placeholder="">
+    </div>
+  </div>
+  
+  
+  <% include map %>
+  <% include addImages %>
+  <button type="submit" class="btn btn-primary" id="button">Registrar</button>
+  <a class="btn" id="clear" href="/index">Cancelar</a>
+  
+</form> 
