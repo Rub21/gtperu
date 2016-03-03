@@ -11,11 +11,7 @@
 *.bz2
 *.pbf
 node_modules/
-uploads/
+public/imagenesDB/
 atest/
 .DS_Store
-*.png
-*.jpge
-*.jpg
-*.JPG
 *.*~
