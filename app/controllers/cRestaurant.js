@@ -48,7 +48,6 @@ module.exports = {
     });
   },
   delete: function(req, res) {
-    console.log(req.params.id);
     Restaurant.remove({
       _id: req.params.id
     }, function(err, bear) {
@@ -56,6 +55,37 @@ module.exports = {
         res.send(err);
       res.json({
         message: 'Successfully deleted'
+      });
+    });
+  },
+
+  update: function(req, res, done) {
+    console.log("=========");
+    console.log(req.body._id);
+
+    Restaurant.findById({
+      _id: req.body._id
+    }, function(err, restaurant) {
+      if (err)
+        res.send(err);
+      var data = req.body;
+      restaurant.nombre = data.nombre;
+      restaurant.categoria = data.categoria;
+      restaurant.tipo = data.tipo;
+      restaurant.descripcion = data.descripcion;
+      restaurant.direccion = data.direccion;
+      restaurant.telefono = data.telefono;
+      restaurant.sitio_web = data.sitio_web;
+      restaurant.horario_atencion = data.horario_atencion;
+      restaurant.especialidad = data.especialidad;
+      restaurant.precio_promedio = data.precio_promedio;
+      restaurant.formas_pago = data.formas_pago;
+      restaurant.latitud = parseFloat(data.latitud);
+      restaurant.longitud = parseFloat(data.longitud);
+      restaurant.save(function(err) {
+        if (err)
+          res.send(err);
+        done(true);
       });
     });
   },

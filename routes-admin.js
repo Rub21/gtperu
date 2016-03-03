@@ -9,7 +9,7 @@ module.exports = function(app, passport, upload) {
   app.get('/', function(req, res) {
     res.render('pages/index.ejs');
   });
-  
+
   //login
   app.get('/login', function(req, res) {
     res.render('pages/login.ejs', {
@@ -95,6 +95,14 @@ module.exports = function(app, passport, upload) {
   });
   app.delete('/restaurants/:id', isLoggedIn, function(req, res) {
     controllerRestaurant.delete(req, res);
+  });
+
+  app.post('/restaurants2', isLoggedIn, function(req, res) {
+    controllerRestaurant.update(req, res, function(status) {
+      if (status) {
+        res.render('pages/confirm.ejs');
+      }
+    });
   });
   //TRANSPORTE
   app.get('/transporte', isLoggedIn, function(req, res) {

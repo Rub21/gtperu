@@ -130,6 +130,7 @@ function fillFormRecurso(obj) {
 
 
 function fillFormRestaurants(obj) {
+  document.getElementById('_id').value = obj._id;
   document.getElementById('nombre').value = obj.nombre;
   document.getElementById('categoria').value = obj.categoria;
   document.getElementById('tipo').value = obj.tipo;
