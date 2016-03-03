@@ -19,50 +19,50 @@ module.exports = {
       transporte.destinos = data.destinos;
       transporte.latitud = parseFloat(data.latitud);
       transporte.longitud = parseFloat(data.longitud);
-   //owner
-   transporte.clase = 'hotel';
-   transporte.estado = true;
-   transporte.owner = req.user.local.email;
-   transporte.imagenes = [];
-   for (var i = 0; i < files.length; i++) {
-    transporte.imagenes.push({
-      url: files[i].filename
+      //owner
+      transporte.clase = 'transporte';
+      transporte.estado = true;
+      transporte.owner = req.user.local.email;
+      transporte.imagenes = [];
+      for (var i = 0; i < files.length; i++) {
+        transporte.imagenes.push({
+          url: files[i].filename
+        });
+      }
+      transporte.save(function(err) {
+        if (err)
+          res.send(err);
+        done(true);
+      });
     });
-  }
-  transporte.save(function(err) {
-    if (err)
-      res.send(err);
-    done(true);
-  });
-});
-},
-findAll: function(req, res) {
-  Transporte.find({
-    owner: req.user.local.email
-  }, function(err, transportes) {
-    if (err)
-      res.send(err);
-    res.json(transportes);
-  });
-},
-findPublic: function(req, res) {
-  Transporte.find(function(err, transportes) {
-    if (err)
-      res.send(err);
-    res.json(transportes);
-  });
-},
-delete: function(req, res) {
-  Transporte.remove({
-    _id: req.params.id
-  }, function(err, bear) {
-    if (err)
-      res.send(err);
-    res.json({
-      message: 'Successfully deleted'
+  },
+  findAll: function(req, res) {
+    Transporte.find({
+      owner: req.user.local.email
+    }, function(err, transportes) {
+      if (err)
+        res.send(err);
+      res.json(transportes);
     });
-  });
-},
+  },
+  findPublic: function(req, res) {
+    Transporte.find(function(err, transportes) {
+      if (err)
+        res.send(err);
+      res.json(transportes);
+    });
+  },
+  delete: function(req, res) {
+    Transporte.remove({
+      _id: req.params.id
+    }, function(err, bear) {
+      if (err)
+        res.send(err);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
+  },
 
   //API
   listAll: function(req, res) {

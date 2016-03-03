@@ -19,7 +19,7 @@ module.exports = {
       complementario.latitud = parseFloat(data.latitud);
       complementario.longitud = parseFloat(data.latitud);
       //owner
-      complementario.clase = "Complementario";
+      complementario.clase = "complementario";
       complementario.estado = true;
       complementario.owner = req.user.local.email;
       complementario.imagenes = [];
